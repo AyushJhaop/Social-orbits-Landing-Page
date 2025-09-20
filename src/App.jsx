@@ -1,12 +1,12 @@
 import React from 'react';
 import Hero from './components/Hero';
 
-import Right from './components/Right';
+import CaseStudySection from './components/Right';
 import Left from './components/Left';
-import Approach from './components/Approach';
-import Testimonials from './components/Testimonials';
-import WhyUs from  './components/WhyUs'; 
-import Creaters from  './components/Creaters'; 
+import ProcessFlow from './components/Approach';
+import TestimonialCarousel from './components/Testimonials';
+import ViralComparison from  './components/WhyUs'; 
+import Creators from  './components/Creaters'; 
 
 
 function App() {
@@ -14,14 +14,14 @@ function App() {
     <div className="App">
       <Hero />
       
-      <Right />
+      <CaseStudySection />
       
       <Left />
-      <Creaters />
-      <Approach />
-      <Testimonials />
+      <Creators />
+      <ProcessFlow />
+      <TestimonialCarousel />
       
-      <WhyUs />
+      <ViralComparison />
     
     </div>
   );
