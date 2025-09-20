@@ -1,105 +1,87 @@
+import { useState } from 'react'
+
 const ViralComparison = () => {
-  const CrossIcon = () => (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="20"
-      height="20"
-      fill="rgba(0, 0, 0, 0.48)"
-      className="bi bi-x-circle-fill flex-shrink-0"
-      viewBox="0 0 16 16"
-    >
-      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z" />
-    </svg>
-  )
+  const [showContact, setShowContact] = useState(false)
 
-  const CheckIcon = () => (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="20"
-      height="20"
-      fill="rgb(0, 0, 0)"
-      className="bi bi-check-circle-fill flex-shrink-0"
-      viewBox="0 0 16 16"
-    >
-      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
-    </svg>
-  )
-
-  const ViralLogo = () => (
-    <div className="flex items-center gap-2">
-      <div className="w-7 h-7 bg-black rounded-md flex items-center justify-center">
-        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-          <path d="M6 0L7.5 4.5L12 6L7.5 7.5L6 12L4.5 7.5L0 6L4.5 4.5L6 0Z" fill="white" />
-        </svg>
-      </div>
-      <span className="text-black font-normal text-2xl">viral</span>
-    </div>
-  )
+  const handleBookCall = () => {
+    setShowContact(!showContact)
+  }
 
   return (
     <div className="w-full min-h-screen flex items-center justify-center px-8 bg-emerald-100">
-      <div className="w-full max-w-5xl">
-        <div className="text-center mb-20">
-          <p className="text-black text-base mb-12 font-medium">The difference</p>
-          <h1 className="text-6xl font-bold text-black leading-tight mb-4">Why choose Viral</h1>
-          <h1 className="text-6xl text-black leading-tight">
-            over <em className="italic font-light">everyone</em> else?
-          </h1>
-        </div>
-
-        <div className="grid grid-cols-2 gap-32">
-          {/* Other Agencies Column */}
-          <div>
-            <h2 className="text-3xl font-light text-gray-400 mb-16">Other Agencies</h2>
+      <div className="w-full max-w-7xl">
+        {/* New Section - Serious Business */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
+          {/* Left Content */}
+          <div className="space-y-8">
+            <h2 className="text-4xl md:text-5xl font-bold text-black leading-tight">
+              If you are really serious to scale your business or brand then you are 
+              <span className="text-emerald-600"> next step away</span>
+            </h2>
+            
             <div className="space-y-6">
-              <div className="flex items-center gap-4">
-                <CrossIcon />
-                <span className="text-gray-400 text-lg font-normal">Generic content templates</span>
-              </div>
-              <div className="flex items-center gap-4">
-                <CrossIcon />
-                <span className="text-gray-400 text-lg font-normal">Monthly reporting only</span>
-              </div>
-              <div className="flex items-center gap-4">
-                <CrossIcon />
-                <span className="text-gray-400 text-lg font-normal">Separate teams for different platforms</span>
-              </div>
-              <div className="flex items-center gap-4">
-                <CrossIcon />
-                <span className="text-gray-400 text-lg font-normal">Long-term contracts required</span>
-              </div>
-              <div className="flex items-center gap-4">
-                <CrossIcon />
-                <span className="text-gray-400 text-lg font-normal">One-size-fits-all approach</span>
-              </div>
+              <button 
+                onClick={handleBookCall}
+                className="bg-black text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-gray-800 transition-all duration-300 hover:scale-105"
+              >
+                Book a strategy call
+              </button>
+              
+              {/* Contact Info - Shows when button is clicked */}
+              {showContact && (
+                <div className="bg-white rounded-2xl p-6 shadow-lg border border-emerald-200 space-y-4">
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">Contact Information</h3>
+                  <div className="space-y-3">
+                    <div className="flex items-center space-x-3">
+                      <span className="text-emerald-600 text-lg">📧</span>
+                      <span className="text-gray-800">contact@socialbud.com</span>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <span className="text-emerald-600 text-lg">📱</span>
+                      <span className="text-gray-800">+91 9876543210</span>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <span className="text-emerald-600 text-lg">🌐</span>
+                      <span className="text-gray-800">www.socialbud.com</span>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <span className="text-emerald-600 text-lg">📍</span>
+                      <span className="text-gray-800">Mumbai, Maharashtra, India</span>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
 
-          {/* Viral Column */}
-          <div>
-            <div className="mb-16">
-              <ViralLogo />
-            </div>
-            <div className="space-y-6">
-              <div className="flex items-center gap-4">
-                <CheckIcon />
-                <span className="text-black text-lg font-normal">Custom content for your brand</span>
+          {/* Right Side - Hero-style Card */}
+          <div className="relative lg:block hidden">
+            <div className="relative">
+              <div className="bg-white rounded-3xl p-4 shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500">
+                <div className="aspect-[3/4] bg-gradient-to-br from-emerald-200 via-emerald-300 to-emerald-400 rounded-2xl overflow-hidden relative">
+                  {/* Mock Social Media UI */}
+                  <div className="absolute top-4 left-4 right-4 flex items-center justify-between">
+                    <div className="flex items-center space-x-2">
+                      <div className="w-8 h-8 bg-gradient-to-br from-emerald-600 to-emerald-700 rounded-full flex items-center justify-center">
+                        <span className="text-white text-xs font-bold">S</span>
+                      </div>
+                      <span className="text-white font-medium text-sm">socialbud</span>
+                      <span className="text-white opacity-75 text-sm">2h</span>
+                    </div>
+                  </div>
+                  
+                  {/* Growth chart visualization */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-emerald-300 via-emerald-200 to-emerald-400 opacity-80">
+                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                      <div className="w-32 h-32 bg-white rounded-full opacity-20"></div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className="flex items-center gap-4">
-                <CheckIcon />
-                <span className="text-black text-lg font-normal">Real-time performance tracking</span>
-              </div>
-              <div className="flex items-center gap-4">
-                <CheckIcon />
-                <span className="text-black text-lg font-normal">Integrated cross-platform strategy</span>
-              </div>
-              <div className="flex items-center gap-4">
-                <CheckIcon />
-                <span className="text-black text-lg font-normal">Flexible month-to-month options</span>
-              </div>
-              <div className="flex items-center gap-4">
-                <CheckIcon />
-                <span className="text-black text-lg font-normal">Tailored to your specific goals</span>
+
+              {/* Floating Icon */}
+              <div className="absolute -bottom-6 -right-6 w-16 h-16 bg-emerald-600 rounded-2xl flex items-center justify-center shadow-xl">
+                <div className="text-white text-2xl">📈</div>
               </div>
             </div>
           </div>

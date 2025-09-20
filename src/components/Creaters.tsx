@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import { Card } from "@/components/ui/card"
 import { ChevronLeft, ChevronRight, Heart, MessageCircle, Share, Bookmark } from "lucide-react"
-
+ 
 interface Creator {
   id: string
   name: string

@@ -10,24 +10,30 @@ export default function CaseStudySection() {
   const cards = [
     {
       id: 1,
-      h1: "Digital Transformation",
-      h2: "Revolutionizing Customer Experience",
-      description: "We helped transform traditional businesses into digital-first companies, creating seamless customer journeys that drive engagement and increase conversion rates by 300%.",
-      metrics: ["300% Conversion Increase", "50K+ New Customers", "2M+ Revenue Growth"]
+      h1: "Dungarpur Jewellers",
+      h2: "Achievements",
+      description: "Expanded from city-level recognition to a leading jewellery brand across the district.",
+      howTitle: "How",
+      howDescription: "Executed a funnel-driven campaign blending targeted ads with organic growth strategies.",
+      metrics: ["+6,000 Followers", "3x Footfalls", "2x Inquiries"]
     },
     {
       id: 2,
-      h1: "Brand Scaling Success",
-      h2: "From Startup to Market Leader",
-      description: "Our comprehensive scaling strategy took emerging brands from zero to hero, implementing data-driven marketing campaigns that generated exponential growth and market dominance.",
-      metrics: ["500% Revenue Growth", "15+ Market Expansion", "1M+ Brand Reach"]
+      h1: "Ohalala Café & Restro",
+      h2: "Achievements",
+      description: "Overcame tough competition and built strong visibility in the Goa market.",
+      howTitle: "How",
+      howDescription: "Identified gaps and executed a detailed content plan with consistent creative strategy.",
+      metrics: ["74.8K Followers", "Millions of Views", "High Sales Growth"]
     },
     {
       id: 3,
-      h1: "ROI Optimization",
-      h2: "Maximizing Return on Investment",
-      description: "Through strategic campaign optimization and advanced analytics, we consistently deliver exceptional ROI for our clients, turning marketing spend into profitable revenue streams.",
-      metrics: ["8x Average ROI", "40% Cost Reduction", "90% Client Retention"]
+      h1: "Khodaniya Jewellers",
+      h2: "Achievements",
+      description: "Positioned as the leading jewellery brand in Wagad with strong authority and recognition.",
+      howTitle: "How",
+      howDescription: "Planned, researched, and executed authority-building content that made \"Jewellery in Wagad = Khodaniya Jewellers.\"",
+      metrics: ["+7,000 Followers", "5M+ Views", "5x Footfalls"]
     }
   ]
 
@@ -40,7 +46,7 @@ export default function CaseStudySection() {
   }, [cards.length])
 
   return (
-    <section className="bg-gray-50 py-16 px-6">
+    <section className="bg-white py-16 px-6">
       <div className="max-w-7xl mx-auto">
         {/* Case Study Heading */}
         <div className="text-center mb-16">
@@ -78,61 +84,127 @@ export default function CaseStudySection() {
                       {cards[currentCard].description}
                     </p>
                     
-                    {/* Metrics */}
-                    <div className="space-y-3">
-                      {cards[currentCard].metrics.map((metric, index) => (
-                        <div key={index} className="flex items-center space-x-3">
-                          <span className="text-emerald-500 text-lg">✅</span>
-                          <span className="text-gray-800 font-medium">{metric}</span>
-                        </div>
-                      ))}
-                    </div>
-                    
-                    <button className="bg-emerald-600 text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-emerald-700 transition-all duration-300 hover:scale-105">
-                      View Full Case Study
-                    </button>
-                  </div>
-
-                  {/* Right Card */}
-                  <div className="relative flex justify-center items-center h-full">
-                    <div className="bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 cursor-pointer border border-emerald-200">
-                      <div className="text-center space-y-6">
-                        {/* Icon */}
-                        <div className="w-16 h-16 bg-emerald-600 rounded-full flex items-center justify-center mx-auto">
-                          <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                          </svg>
-                        </div>
-                        
-                        {/* Title */}
-                        <h3 className="text-2xl font-bold text-gray-900">
-                          Performance Analytics
+                    {/* How Section - Only for Dungarpur Jewellers */}
+                    {cards[currentCard].howTitle && (
+                      <div className="space-y-3">
+                        <h3 className="text-xl font-semibold text-gray-900">
+                          {cards[currentCard].howTitle}
                         </h3>
-                        
-                        {/* Description */}
-                        <p className="text-gray-600 leading-relaxed">
-                          Track your campaign performance with real-time analytics and detailed insights that drive results.
+                        <p className="text-lg text-gray-600 leading-relaxed">
+                          {cards[currentCard].howDescription}
                         </p>
-                        
-                        {/* Stats */}
-                        <div className="grid grid-cols-2 gap-4 pt-4">
-                          <div className="text-center">
-                            <div className="text-2xl font-bold text-emerald-600">98%</div>
-                            <div className="text-sm text-gray-500">Accuracy</div>
+                      </div>
+                    )}
+                    
+                    {/* Numbers/Metrics */}
+                    <div className="space-y-4">
+                      <h3 className="text-xl font-semibold text-gray-900">
+                        {cards[currentCard].howTitle ? "Numbers" : "Results"}
+                      </h3>
+                      <div className="space-y-3">
+                        {cards[currentCard].metrics.map((metric, index) => (
+                          <div key={index} className="flex items-center space-x-3">
+                            <span className="text-emerald-500 text-lg">✅</span>
+                            <span className="text-gray-800 font-medium">{metric}</span>
                           </div>
-                          <div className="text-center">
-                            <div className="text-2xl font-bold text-emerald-600">24/7</div>
-                            <div className="text-sm text-gray-500">Monitoring</div>
-                          </div>
-                        </div>
-                        
-                        {/* CTA */}
-                        <button className="w-full bg-emerald-600 text-white py-3 rounded-lg font-medium hover:bg-emerald-700 transition-colors duration-200">
-                          Learn More
-                        </button>
+                        ))}
                       </div>
                     </div>
                   </div>
+
+                  {/* Right Card - Only show for Dungarpur Jewellers */}
+                  {cards[currentCard].howTitle && (
+                    <div className="relative flex justify-center items-center h-full">
+                      <div className="bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 cursor-pointer border border-emerald-200">
+                        <div className="text-center space-y-6">
+                          {/* Icon */}
+                          <div className="w-16 h-16 bg-emerald-600 rounded-full flex items-center justify-center mx-auto">
+                            <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                            </svg>
+                          </div>
+                          
+                          {/* Title */}
+                          <h3 className="text-2xl font-bold text-gray-900">
+                            {cards[currentCard].h1 === "Dungarpur Jewellers" 
+                              ? "Ad Performance Analytics" 
+                              : cards[currentCard].h1 === "Ohalala Café & Restro"
+                              ? "Content Performance Analytics"
+                              : "Authority Building Analytics"
+                            }
+                          </h3>
+                          
+                          {/* Description */}
+                          <p className="text-gray-600 leading-relaxed">
+                            {cards[currentCard].h1 === "Dungarpur Jewellers" 
+                              ? "Dungarpur Jewellers campaign performance metrics and engagement results."
+                              : cards[currentCard].h1 === "Ohalala Café & Restro"
+                              ? "Ohalala Café & Restro content strategy performance and market visibility metrics."
+                              : "Khodaniya Jewellers authority-building campaign performance and market dominance metrics."
+                            }
+                          </p>
+                          
+                          {/* Stats */}
+                          {cards[currentCard].h1 === "Dungarpur Jewellers" ? (
+                            <div className="grid grid-cols-1 gap-4 pt-4">
+                              <div className="text-center">
+                                <div className="text-2xl font-bold text-emerald-600">+6K</div>
+                                <div className="text-sm text-gray-500">New Followers</div>
+                              </div>
+                              <div className="text-center">
+                                <div className="text-2xl font-bold text-emerald-600">3x</div>
+                                <div className="text-sm text-gray-500">Store Footfalls</div>
+                              </div>
+                              <div className="text-center">
+                                <div className="text-2xl font-bold text-emerald-600">2x</div>
+                                <div className="text-sm text-gray-500">Customer Inquiries</div>
+                              </div>
+                            </div>
+                          ) : cards[currentCard].h1 === "Ohalala Café & Restro" ? (
+                            <div className="grid grid-cols-1 gap-4 pt-4">
+                              <div className="text-center">
+                                <div className="text-2xl font-bold text-emerald-600">74.8K</div>
+                                <div className="text-sm text-gray-500">Followers</div>
+                              </div>
+                              <div className="text-center">
+                                <div className="text-2xl font-bold text-emerald-600">1M+</div>
+                                <div className="text-sm text-gray-500">Views</div>
+                              </div>
+                              <div className="text-center">
+                                <div className="text-2xl font-bold text-emerald-600">↗️</div>
+                                <div className="text-sm text-gray-500">Sales Growth</div>
+                              </div>
+                            </div>
+                          ) : (
+                            <div className="grid grid-cols-1 gap-4 pt-4">
+                              <div className="text-center">
+                                <div className="text-2xl font-bold text-emerald-600">+7K</div>
+                                <div className="text-sm text-gray-500">New Followers</div>
+                              </div>
+                              <div className="text-center">
+                                <div className="text-2xl font-bold text-emerald-600">5M+</div>
+                                <div className="text-sm text-gray-500">Views</div>
+                              </div>
+                              <div className="text-center">
+                                <div className="text-2xl font-bold text-emerald-600">5x</div>
+                                <div className="text-sm text-gray-500">Footfalls</div>
+                              </div>
+                            </div>
+                          )}
+                          
+                          {/* CTA */}
+                          <button className="w-full bg-emerald-600 text-white py-3 rounded-lg font-medium hover:bg-emerald-700 transition-colors duration-200">
+                            {cards[currentCard].h1 === "Dungarpur Jewellers" 
+                              ? "View Analytics" 
+                              : cards[currentCard].h1 === "Ohalala Café & Restro"
+                              ? "View Content Strategy"
+                              : "View Authority Results"
+                            }
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
             </motion.div>
