@@ -2,9 +2,9 @@ function Left() {
   return (
     <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6 md:mb-8 text-center">
-          Check Out Our <span className="text-emerald-600">Success Stories</span>
-        </h2>
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-6 md:mb-8 text-center font-['Epilogue']">
+          Top performing content
+        </h1>
         
         {/* Mobile: Stack vertically, Desktop: Horizontal scroll */}
         <div className="flex flex-col sm:flex-row sm:justify-center sm:items-center sm:space-x-4 lg:space-x-6 sm:overflow-x-auto pb-6 md:pb-8 space-y-6 sm:space-y-0">
@@ -82,20 +82,6 @@ function Left() {
               <h3 className="text-xs sm:text-sm font-bold text-gray-900">tomatoesgoa</h3>
               <p className="text-xs text-gray-600">Behind the scenes</p>
             </div>
-          </div>
-        </div>
-
-        <div className="text-center mt-12 md:mt-16">
-          <div className="bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-xl md:rounded-2xl p-6 md:p-8 text-white">
-            <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4">
-              Ready to Create Your Own Success Story?
-            </h3>
-            <p className="text-base md:text-lg mb-4 md:mb-6 opacity-90">
-              Join the brands featured in these reels and start scaling today
-            </p>
-            <button className="bg-white text-emerald-600 px-6 md:px-8 py-2.5 md:py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors duration-300 text-sm md:text-base">
-              Book Your Strategy Call
-            </button>
           </div>
         </div>
       </div>

@@ -136,6 +136,13 @@ export default function Creators() {
 
   return (
     <div className="relative w-full max-w-6xl mx-auto px-4 sm:px-6">
+      {/* Section Heading */}
+      <div className="text-center mb-12 md:mb-16">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-3 md:mb-4 font-['Epilogue']">
+          Top Creators we have worked with
+        </h1>
+      </div>
+
       <div className="flex flex-col lg:flex-row gap-6 md:gap-8 items-start">
         {/* Mobile Phone Frame - Left Side with Instagram Post */}
         <div className="relative bg-gray-900 rounded-[1.5rem] md:rounded-[2rem] p-1.5 md:p-2 shadow-2xl flex-shrink-0 w-[240px] sm:w-[260px] md:w-[280px] mx-auto lg:mx-0">

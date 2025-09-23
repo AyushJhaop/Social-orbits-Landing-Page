@@ -65,23 +65,23 @@ export default function CaseStudySection() {
           </p>
         </div>
         
-        {/* Card Container */}
-        <div className="relative h-[600px] sm:h-[700px] md:h-[800px] overflow-hidden">
-          {/* Navigation Buttons - Hidden on mobile */}
+        {/* Card Container with optimized margins for arrow buttons */}
+        <div className="relative min-h-[600px] sm:min-h-[700px] md:min-h-[750px] lg:mx-16 xl:mx-20">
+          {/* Navigation Buttons - Optimally positioned for visibility and accessibility */}
           <button
             onClick={goToPrevious}
-            className="hidden sm:block absolute left-0 top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 bg-emerald-600 rounded-full flex items-center justify-center text-white hover:bg-emerald-700 transition-all duration-300 hover:scale-110 shadow-lg z-10"
+            className="hidden lg:flex absolute left-[-40px] xl:left-[-50px] top-1/2 -translate-y-1/2 w-12 h-12 xl:w-14 xl:h-14 bg-emerald-600 rounded-full items-center justify-center text-white hover:bg-emerald-700 transition-all duration-300 hover:scale-110 shadow-xl border-2 border-white z-30"
             aria-label="Previous case study"
           >
-            <ChevronLeft size={20} className="md:w-6 md:h-6" />
+            <ChevronLeft size={20} className="xl:w-6 xl:h-6" />
           </button>
 
           <button
             onClick={goToNext}
-            className="hidden sm:block absolute right-0 top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 bg-emerald-600 rounded-full flex items-center justify-center text-white hover:bg-emerald-700 transition-all duration-300 hover:scale-110 shadow-lg z-10"
+            className="hidden lg:flex absolute right-[-40px] xl:right-[-50px] top-1/2 -translate-y-1/2 w-12 h-12 xl:w-14 xl:h-14 bg-emerald-600 rounded-full items-center justify-center text-white hover:bg-emerald-700 transition-all duration-300 hover:scale-110 shadow-xl border-2 border-white z-30"
             aria-label="Next case study"
           >
-            <ChevronRight size={20} className="md:w-6 md:h-6" />
+            <ChevronRight size={20} className="xl:w-6 xl:h-6" />
           </button>
 
           <AnimatePresence mode="wait">
@@ -139,9 +139,9 @@ export default function CaseStudySection() {
                     </div>
                   </div>
 
-                  {/* Image Section - Hidden on mobile, visible on lg+ */}
+                  {/* Image Section - Visible on all screen sizes, responsive positioning */}
                   <div className="w-full h-full flex items-center justify-center order-1 lg:order-2">
-                    <div className="w-full h-[300px] sm:h-[350px] md:h-[400px] lg:h-[450px] rounded-xl md:rounded-2xl overflow-hidden shadow-lg">
+                    <div className="w-full h-[300px] sm:h-[350px] md:h-[400px] lg:h-[450px] rounded-xl md:rounded-2xl overflow-hidden shadow-lg bg-gray-100 border border-gray-200">
                       <img 
                         src={
                           cards[currentCard].h1 === "Dungarpur Jewellers" ? "/image3.jpeg" :
@@ -149,27 +149,34 @@ export default function CaseStudySection() {
                           "/khodaniya-image.jpeg"
                         }
                         alt={`${cards[currentCard].h1} showcase`}
-                        className="w-full h-full object-contain hover:scale-105 transition-transform duration-300"
+                        className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-300"
+                        loading="lazy"
+                        style={{ objectPosition: 'center center' }}
+                        onError={(e) => {
+                          console.log('Image failed to load:', e.target.src);
+                          e.target.style.display = 'block';
+                          e.target.style.backgroundColor = '#f3f4f6';
+                        }}
                       />
                     </div>
                   </div>
                 </div>
 
-                {/* Mobile Navigation Buttons */}
-                <div className="flex sm:hidden justify-center space-x-4 mt-6">
+                {/* Mobile Navigation Buttons - Improved styling */}
+                <div className="flex lg:hidden justify-center space-x-4 mt-8">
                   <button
                     onClick={goToPrevious}
-                    className="w-10 h-10 bg-emerald-600 rounded-full flex items-center justify-center text-white hover:bg-emerald-700 transition-all duration-300 shadow-lg"
+                    className="w-12 h-12 bg-emerald-600 rounded-full flex items-center justify-center text-white hover:bg-emerald-700 transition-all duration-300 hover:scale-110 shadow-lg border-2 border-emerald-100"
                     aria-label="Previous case study"
                   >
-                    <ChevronLeft size={18} />
+                    <ChevronLeft size={20} />
                   </button>
                   <button
                     onClick={goToNext}
-                    className="w-10 h-10 bg-emerald-600 rounded-full flex items-center justify-center text-white hover:bg-emerald-700 transition-all duration-300 shadow-lg"
+                    className="w-12 h-12 bg-emerald-600 rounded-full flex items-center justify-center text-white hover:bg-emerald-700 transition-all duration-300 hover:scale-110 shadow-lg border-2 border-emerald-100"
                     aria-label="Next case study"
                   >
-                    <ChevronRight size={18} />
+                    <ChevronRight size={20} />
                   </button>
                 </div>
               </div>
