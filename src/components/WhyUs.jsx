@@ -1,10 +1,6 @@
-import { useState } from 'react'
-
 const ViralComparison = () => {
-  const [showContact, setShowContact] = useState(false)
-
   const handleBookCall = () => {
-    setShowContact(!showContact)
+    window.open('https://calendly.com/tahakushalgarh4/30min', '_blank')
   }
 
   return (
@@ -26,31 +22,6 @@ const ViralComparison = () => {
             >
               Book a strategy call
             </button>
-            
-            {/* Contact Info - Shows when button is clicked */}
-            {showContact && (
-              <div className="bg-white rounded-xl md:rounded-2xl p-4 md:p-6 shadow-lg border border-emerald-200 space-y-3 md:space-y-4 max-w-sm md:max-w-md mx-auto">
-                <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-3 md:mb-4 font-['Epilogue']">Contact Information</h3>
-                <div className="space-y-2 md:space-y-3">
-                  <div className="flex items-center space-x-3">
-                    <span className="text-emerald-600 text-base md:text-lg">📧</span>
-                    <span className="text-gray-800 text-sm md:text-base">contact@socialbud.com</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <span className="text-emerald-600 text-base md:text-lg">📱</span>
-                    <span className="text-gray-800 text-sm md:text-base">+91 9876543210</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <span className="text-emerald-600 text-base md:text-lg">🌐</span>
-                    <span className="text-gray-800 text-sm md:text-base">www.socialbud.com</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <span className="text-emerald-600 text-base md:text-lg">📍</span>
-                    <span className="text-gray-800 text-sm md:text-base">Mumbai, Maharashtra, India</span>
-                  </div>
-                </div>
-              </div>
-            )}
           </div>
         </div>
       </div>

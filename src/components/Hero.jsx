@@ -98,7 +98,10 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              <button className="bg-black text-white px-10 py-4 rounded-full text-lg font-medium hover:bg-gray-800 transition-all duration-300 hover:scale-105 shadow-lg font-['Epilogue']">
+              <button 
+                onClick={() => window.open('https://calendly.com/tahakushalgarh4/30min', '_blank')}
+                className="bg-black text-white px-10 py-4 rounded-full text-lg font-medium hover:bg-gray-800 transition-all duration-300 hover:scale-105 shadow-lg font-['Epilogue']"
+              >
                 Book a call
               </button>
             </motion.div>
