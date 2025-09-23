@@ -62,75 +62,93 @@ export default function TestimonialCarousel() {
   const currentTestimonial = testimonials[currentIndex]
 
   return (
-    <section className="py-20 px-6 bg-white">
+    <section className="py-12 md:py-20 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-7xl mx-auto relative">
         {/* Section Heading */}
-        <div className="text-center mb-16">
-          <h1 className="text-5xl md:text-6xl font-bold text-black leading-tight">
+        <div className="text-center mb-12 md:mb-16">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-black leading-tight font-['Epilogue']">
             What our clients says
           </h1>
         </div>
 
-        {/* Navigation Buttons - Outside the white container */}
+        {/* Navigation Buttons - Hidden on mobile, visible on desktop */}
         <button
           onClick={goToPrevious}
-          className="absolute left-0 top-1/2 -translate-y-1/2 w-14 h-14 bg-emerald-600 rounded-full flex items-center justify-center text-white hover:bg-emerald-700 transition-all duration-300 hover:scale-110 shadow-lg z-10"
+          className="hidden lg:block absolute left-0 top-1/2 -translate-y-1/2 w-12 h-12 xl:w-14 xl:h-14 bg-emerald-600 rounded-full flex items-center justify-center text-white hover:bg-emerald-700 transition-all duration-300 hover:scale-110 shadow-lg z-10"
           aria-label="Previous testimonial"
         >
-          <ChevronLeft size={26} />
+          <ChevronLeft size={24} className="xl:w-6 xl:h-6" />
         </button>
 
         <button
           onClick={goToNext}
-          className="absolute right-0 top-1/2 -translate-y-1/2 w-14 h-14 bg-emerald-600 rounded-full flex items-center justify-center text-white hover:bg-emerald-700 transition-all duration-300 hover:scale-110 shadow-lg z-10"
+          className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 w-12 h-12 xl:w-14 xl:h-14 bg-emerald-600 rounded-full flex items-center justify-center text-white hover:bg-emerald-700 transition-all duration-300 hover:scale-110 shadow-lg z-10"
           aria-label="Next testimonial"
         >
-          <ChevronRight size={24} />
+          <ChevronRight size={22} className="xl:w-6 xl:h-6" />
         </button>
 
-        <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl mx-16 border border-gray-100">
+        <div className="bg-white rounded-2xl md:rounded-3xl p-4 sm:p-6 md:p-8 lg:p-12 shadow-xl mx-0 lg:mx-8 xl:mx-16 border border-gray-100">
 
           <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
             {/* Quote Icon */}
-            <div className="w-20 h-20 bg-gradient-to-br from-emerald-600 to-emerald-700 rounded-2xl flex items-center justify-center shadow-lg mb-8">
-              <div className="w-8 h-8">
+            <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-emerald-600 to-emerald-700 rounded-xl md:rounded-2xl flex items-center justify-center shadow-lg mb-6 md:mb-8">
+              <div className="w-6 h-6 md:w-8 md:h-8">
                 <QuoteIcon />
               </div>
             </div>
 
             {/* Testimonial Text */}
-            <div className="space-y-8">
-              <blockquote className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
+            <div className="space-y-6 md:space-y-8">
+              <blockquote className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold text-gray-900 leading-tight">
                 "{currentTestimonial.quote}
                 <em className="font-bold italic text-emerald-600">{currentTestimonial.emphasis}</em>"
               </blockquote>
 
               {/* Results Badge */}
-              <div className="inline-block bg-emerald-50 border border-emerald-200 rounded-full px-6 py-3">
-                <p className="text-base font-semibold text-emerald-700">
+              <div className="inline-block bg-emerald-50 border border-emerald-200 rounded-full px-4 py-2 md:px-6 md:py-3">
+                <p className="text-sm md:text-base font-semibold text-emerald-700">
                   🎯 {currentTestimonial.results}
                 </p>
               </div>
 
               {/* Attribution */}
-              <div className="space-y-2">
-                <p className="text-2xl font-semibold text-gray-900">
+              <div className="space-y-1 md:space-y-2">
+                <p className="text-lg md:text-xl lg:text-2xl font-semibold text-gray-900">
                   {currentTestimonial.author}
                 </p>
-                <p className="text-xl text-gray-600">
+                <p className="text-base md:text-lg lg:text-xl text-gray-600">
                   {currentTestimonial.role} • {currentTestimonial.company}
                 </p>
               </div>
             </div>
           </div>
 
+          {/* Mobile Navigation Buttons */}
+          <div className="flex lg:hidden justify-center space-x-4 mt-8">
+            <button
+              onClick={goToPrevious}
+              className="w-12 h-12 bg-emerald-600 rounded-full flex items-center justify-center text-white hover:bg-emerald-700 transition-all duration-300 shadow-lg"
+              aria-label="Previous testimonial"
+            >
+              <ChevronLeft size={20} />
+            </button>
+            <button
+              onClick={goToNext}
+              className="w-12 h-12 bg-emerald-600 rounded-full flex items-center justify-center text-white hover:bg-emerald-700 transition-all duration-300 shadow-lg"
+              aria-label="Next testimonial"
+            >
+              <ChevronRight size={20} />
+            </button>
+          </div>
+
           {/* Dots Indicator */}
-          <div className="flex justify-center mt-12 space-x-3">
+          <div className="flex justify-center mt-8 md:mt-12 space-x-2 md:space-x-3">
             {testimonials.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                className={`w-2.5 h-2.5 md:w-3 md:h-3 rounded-full transition-all duration-300 ${
                   index === currentIndex 
                     ? "bg-emerald-600 scale-125 shadow-lg" 
                     : "bg-gray-300 hover:bg-gray-400"
