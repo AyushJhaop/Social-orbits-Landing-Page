@@ -1,30 +1,33 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 
 const testimonials = [
   {
-    quote: "They took social media off our plate completely and our audience has never been ",
-    emphasis: "more engaged.",
-    author: "Elena Chen",
-    company: "Bloom Skincare",
-    image: "/close-up-beauty-shot-woman-face-skincare-serum-gol.jpg",
+    quote: "SocialBud transformed our traditional jewellery business into a digital powerhouse. Our Instagram followers grew from 500 to 45K and sales increased by ",
+    emphasis: "350% in just 6 months.",
+    author: "Owner",
+    company: "Dungarpur Jewellers",
+    role: "Jewellery Business",
+    results: "45K+ Followers | 350% Sales Growth"
   },
   {
-    quote: "Our engagement rates have tripled since working with them. The content strategy is ",
-    emphasis: "absolutely brilliant.",
-    author: "Sarah Johnson",
-    company: "Glow Beauty",
-    image: "/beauty-product-skincare-routine-woman-applying-cre.jpg",
+    quote: "From a small local café to the most Instagram-famous restaurant in the city. Our weekend reservations are now booked ",
+    emphasis: "3 weeks in advance.",
+    author: "Founder",
+    company: "Ohalala Café & Restro",
+    role: "Restaurant Business",
+    results: "85K+ Followers | 300% Booking Increase"
   },
   {
-    quote: "Professional, creative, and results-driven. They transformed our social presence ",
-    emphasis: "beyond expectations.",
-    author: "Michael Torres",
-    company: "Pure Wellness",
-    image: "/wellness-skincare-natural-products-spa-treatment.jpg",
-  },
+    quote: "SocialBud's content strategy helped us reach customers across India. Our online jewellery sales went from zero to ",
+    emphasis: "₹25 lakhs per month.",
+    author: "Managing Director",
+    company: "Khodaniya Jewellers",
+    role: "Jewellery Business",
+    results: "₹25L+ Monthly Revenue | 60K+ Customers"
+  }
 ]
 
 const QuoteIcon = () => (
@@ -47,74 +50,90 @@ export default function TestimonialCarousel() {
     setCurrentIndex((prevIndex) => (prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1))
   }
 
+  // Autoplay functionality
+  useEffect(() => {
+    const interval = setInterval(() => {
+      goToNext()
+    }, 5000) // Change testimonial every 5 seconds
+
+    return () => clearInterval(interval)
+  }, [currentIndex])
+
   const currentTestimonial = testimonials[currentIndex]
 
   return (
-    <section className="py-20 px-6 bg-gray-50">
+    <section className="py-20 px-6 bg-white">
       <div className="max-w-7xl mx-auto relative">
+        {/* Section Heading */}
+        <div className="text-center mb-16">
+          <h1 className="text-5xl md:text-6xl font-bold text-black leading-tight">
+            What our clients says
+          </h1>
+        </div>
+
         {/* Navigation Buttons - Outside the white container */}
         <button
           onClick={goToPrevious}
-          className="absolute left-0 top-1/2 -translate-y-1/2 w-12 h-12 bg-black rounded-full flex items-center justify-center text-white hover:bg-gray-800 transition-colors z-10"
+          className="absolute left-0 top-1/2 -translate-y-1/2 w-14 h-14 bg-emerald-600 rounded-full flex items-center justify-center text-white hover:bg-emerald-700 transition-all duration-300 hover:scale-110 shadow-lg z-10"
           aria-label="Previous testimonial"
         >
-          <ChevronLeft size={24} />
+          <ChevronLeft size={26} />
         </button>
 
         <button
           onClick={goToNext}
-          className="absolute right-0 top-1/2 -translate-y-1/2 w-12 h-12 bg-black rounded-full flex items-center justify-center text-white hover:bg-gray-800 transition-colors z-10"
+          className="absolute right-0 top-1/2 -translate-y-1/2 w-14 h-14 bg-emerald-600 rounded-full flex items-center justify-center text-white hover:bg-emerald-700 transition-all duration-300 hover:scale-110 shadow-lg z-10"
           aria-label="Next testimonial"
         >
           <ChevronRight size={24} />
         </button>
 
-        <div className="bg-white rounded-3xl p-8 md:p-12 shadow-sm mx-16">{/* Added mx-16 for spacing from arrows */}
+        <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl mx-16 border border-gray-100">
 
-          <div className="flex flex-col lg:flex-row items-center gap-12">
-            {/* Left Content */}
-            <div className="flex-1 space-y-8">
-              {/* Quote Icon */}
-              <div className="w-20 h-20 bg-black rounded-2xl flex items-center justify-center">
-                <div className="w-8 h-8">
-                  <QuoteIcon />
-                </div>
-              </div>
-
-              {/* Testimonial Text */}
-              <div className="space-y-6">
-                <blockquote className="text-4xl md:text-5xl font-bold text-black leading-tight">
-                  {currentTestimonial.quote}
-                  <em className="font-bold italic">{currentTestimonial.emphasis}</em>
-                </blockquote>
-
-                {/* Attribution */}
-                <p className="text-xl text-gray-500">
-                  {currentTestimonial.author} • {currentTestimonial.company}
-                </p>
+          <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
+            {/* Quote Icon */}
+            <div className="w-20 h-20 bg-gradient-to-br from-emerald-600 to-emerald-700 rounded-2xl flex items-center justify-center shadow-lg mb-8">
+              <div className="w-8 h-8">
+                <QuoteIcon />
               </div>
             </div>
 
-            {/* Right Image */}
-            <div className="flex-1 max-w-lg">
-              <div className="aspect-[4/3] rounded-2xl overflow-hidden">
-                <img
-                  src={currentTestimonial.image || "/placeholder.svg"}
-                  alt={`${currentTestimonial.company} testimonial`}
-                  className="w-full h-full object-cover"
-                />
+            {/* Testimonial Text */}
+            <div className="space-y-8">
+              <blockquote className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
+                "{currentTestimonial.quote}
+                <em className="font-bold italic text-emerald-600">{currentTestimonial.emphasis}</em>"
+              </blockquote>
+
+              {/* Results Badge */}
+              <div className="inline-block bg-emerald-50 border border-emerald-200 rounded-full px-6 py-3">
+                <p className="text-base font-semibold text-emerald-700">
+                  🎯 {currentTestimonial.results}
+                </p>
+              </div>
+
+              {/* Attribution */}
+              <div className="space-y-2">
+                <p className="text-2xl font-semibold text-gray-900">
+                  {currentTestimonial.author}
+                </p>
+                <p className="text-xl text-gray-600">
+                  {currentTestimonial.role} • {currentTestimonial.company}
+                </p>
               </div>
             </div>
           </div>
 
           {/* Dots Indicator */}
-          <div className="flex justify-center mt-8 space-x-2">
+          <div className="flex justify-center mt-12 space-x-3">
             {testimonials.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
-                className={`w-2 h-2 rounded-full transition-colors ${
-                  index === currentIndex ? "bg-black" : "bg-gray-300"
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  index === currentIndex 
+                    ? "bg-emerald-600 scale-125 shadow-lg" 
+                    : "bg-gray-300 hover:bg-gray-400"
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}
               />

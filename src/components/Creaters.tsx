@@ -2,10 +2,8 @@
 
 import { useState, useEffect } from "react"
 import { Card } from "@/components/ui/card"
-import { ChevronLeft, ChevronRight } from "lucide-react"
-
-// Extend Window interface for Instagram and Iframely scripts
-declare global {
+import { ChevronLeft, ChevronRight, Heart, MessageCircle, Share, Bookmark } from "lucide-react"
+ declare global {
   interface Window {
     instgrm?: {
       Embeds: {
@@ -17,7 +15,6 @@ declare global {
     }
   }
 }
-
 interface Creator {
   id: string
   name: string
