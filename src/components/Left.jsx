@@ -7,7 +7,7 @@ function Left() {
         </h1>
         
         {/* Mobile: Stack vertically, Desktop: Horizontal scroll */}
-        <div className="flex flex-col sm:flex-row sm:justify-center sm:items-center sm:space-x-4 lg:space-x-6 sm:overflow-x-auto pb-6 md:pb-8 space-y-6 sm:space-y-0">
+        <div className="flex flex-col sm:flex-row sm:justify-center sm:items-center gap-6 sm:gap-8 lg:gap-12 xl:gap-16 sm:overflow-x-auto pb-6 md:pb-8">
           <div className="flex-shrink-0 mx-auto sm:mx-0">
             <div className="w-[200px] sm:w-[220px] md:w-[240px] h-[400px] sm:h-[440px] md:h-[480px] bg-gray-900 rounded-[30px] md:rounded-[35px] p-2 shadow-2xl">
               <div className="w-full h-full bg-black rounded-[22px] md:rounded-[25px] overflow-hidden">

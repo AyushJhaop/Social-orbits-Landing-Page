@@ -3,13 +3,12 @@
 import { useState, useEffect } from "react"
 import { Card } from "@/components/ui/card"
 import { ChevronLeft, ChevronRight } from "lucide-react"
+import yelliottImg from '../assets/yelliott.png'
+import timmckennaImg from '../assets/timmckenna.png'
+import maahiewayImg from '../assets/maahieway.png'
+import drewniceImg from '../assets/drewnice.png'
  declare global {
   interface Window {
-    instgrm?: {
-      Embeds: {
-        process(): void
-      }
-    }
     iframely?: {
       load(): void
     }
@@ -21,7 +20,7 @@ interface Creator {
   handle: string
   collaboration: string
   profileEmbedUrl: string
-  postEmbedUrl: string
+  postImage: string
 }
 
 const creators: Creator[] = [
@@ -31,7 +30,7 @@ const creators: Creator[] = [
     handle: "@officialandyelliott",
     collaboration: "Business Leadership Campaign",
     profileEmbedUrl: "//iframely.net/S4FUtj2E?theme=white",
-    postEmbedUrl: "https://www.instagram.com/reel/C8cf2CrA69b/?utm_source=ig_embed&utm_campaign=loading",
+    postImage: yelliottImg,
   },
   {
     id: "2",
@@ -39,7 +38,7 @@ const creators: Creator[] = [
     handle: "@timmckenna",
     collaboration: "Ocean Conservation Partnership",
     profileEmbedUrl: "//iframely.net/gVSwwxsO?theme=white",
-    postEmbedUrl: "https://www.instagram.com/p/DNe3-sMR5Rp/?utm_source=ig_embed&utm_campaign=loading",
+    postImage: timmckennaImg,
   },
   {
     id: "3",
@@ -47,7 +46,7 @@ const creators: Creator[] = [
     handle: "@maahieway",
     collaboration: "Travel Lifestyle Campaign",
     profileEmbedUrl: "//iframely.net/5JtYPs9z?theme=white",
-    postEmbedUrl: "https://www.instagram.com/reel/DM9j8kLJf_t/?utm_source=ig_embed&utm_campaign=loading",
+    postImage: maahiewayImg,
   },
   {
     id: "4",
@@ -55,7 +54,7 @@ const creators: Creator[] = [
     handle: "@drewnice561",
     collaboration: "Barber Community Partnership",
     profileEmbedUrl: "//iframely.net/RoFJBmWN?theme=white",
-    postEmbedUrl: "https://www.instagram.com/reel/C4dTGtNLJfM/?utm_source=ig_embed&utm_campaign=loading",
+    postImage: drewniceImg,
   },
 ]
 
@@ -73,19 +72,8 @@ export default function Creators() {
     return () => clearInterval(interval)
   }, [isAutoPlaying])
 
-  // Load Instagram embed scripts
+  // Load Iframely script for profile embeds only
   useEffect(() => {
-    // Load Instagram embed script
-    const script = document.createElement('script')
-    script.async = true
-    script.src = '//www.instagram.com/embed.js'
-    script.onerror = () => {
-      const fallbackScript = document.createElement('script')
-      fallbackScript.src = 'https://iframely.net/files/instagram_embed.js'
-      document.body.appendChild(fallbackScript)
-    }
-    document.body.appendChild(script)
-
     // Load Iframely script for profile embeds
     const iframelyScript = document.createElement('script')
     iframelyScript.async = true
@@ -94,20 +82,15 @@ export default function Creators() {
 
     return () => {
       // Cleanup scripts on unmount
-      const scripts = document.querySelectorAll('script[src*="instagram"], script[src*="iframely"]')
+      const scripts = document.querySelectorAll('script[src*="iframely"]')
       scripts.forEach(script => script.remove())
     }
   }, [])
 
-  // Re-process embeds when current creator changes
+  // Re-process Iframely embeds when current creator changes
   useEffect(() => {
     // Add a small delay to ensure DOM has updated
     const timer = setTimeout(() => {
-      // Re-process Instagram embeds
-      if (window.instgrm) {
-        window.instgrm.Embeds.process()
-      }
-      
       // Re-process Iframely embeds
       if (window.iframely) {
         window.iframely.load()
@@ -158,23 +141,12 @@ export default function Creators() {
               </div>
             </div>
 
-            {/* Real Instagram Post Embed */}
+            {/* Creator Image */}
             <div className="bg-white h-[400px] sm:h-[440px] md:h-[480px] relative overflow-hidden" key={`post-${currentCreator.id}`}>
-              <blockquote 
-                className="instagram-media" 
-                data-instgrm-permalink={currentCreator.postEmbedUrl}
-                data-instgrm-version="14" 
-                style={{ 
-                  background: '#FFF', 
-                  border: 0, 
-                  borderRadius: '3px', 
-                  boxShadow: '0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15)', 
-                  margin: '1px', 
-                  maxWidth: '658px', 
-                  minWidth: '326px', 
-                  padding: 0, 
-                  width: '99.375%'
-                }}
+              <img
+                src={currentCreator.postImage}
+                alt={`${currentCreator.name} content`}
+                className="w-full h-full object-cover"
               />
             </div>
           </div>
