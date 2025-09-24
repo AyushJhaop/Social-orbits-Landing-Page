@@ -151,10 +151,10 @@ export default function CaseStudySection() {
                           <img 
                             src={
                               cards[currentCard].h1 === "Dungarpur Jewellers" 
-                                ? "/src/assets/WhatsApp Image 2025-09-21 at 13.09.25 (3).jpeg"
+                                ? "/WhatsApp Image 2025-09-21 at 13.09.25 (3).jpeg"
                                 : cards[currentCard].h1 === "Ohalala Café & Restro"
-                                ? "/src/assets/WhatsApp Image 2025-09-21 at 13.09.25.jpeg"
-                                : "/src/assets/WhatsApp Image 2025-09-21 at 17.44.36 (2).jpeg"
+                                ? "/WhatsApp Image 2025-09-21 at 13.09.25.jpeg"
+                                : "/WhatsApp Image 2025-09-21 at 17.44.36 (2).jpeg"
                             }
                             alt={
                               cards[currentCard].h1 === "Dungarpur Jewellers" 
