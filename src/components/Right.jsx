@@ -68,8 +68,12 @@ export default function CaseStudySection() {
           </p>
         </div>
         
-        {/* Card Container with consistent size for all case studies */}
-        <div className="relative min-h-[420px] xs:min-h-[450px] sm:min-h-[500px] md:min-h-[580px] lg:min-h-[650px] px-2 sm:px-0 lg:mx-16 xl:mx-20">
+        {/* Card Container with mobile-optimized responsive sizing */}
+        <div className={`relative px-2 sm:px-0 lg:mx-16 xl:mx-20 ${
+          cards[currentCard].h1 === "Khodaniya Jewellers" 
+            ? "min-h-[500px] xs:min-h-[550px] sm:min-h-[600px] md:min-h-[650px] lg:min-h-[700px]" 
+            : "min-h-[380px] xs:min-h-[420px] sm:min-h-[480px] md:min-h-[550px] lg:min-h-[600px]"
+        }`}>
           {/* Navigation Buttons - Optimally positioned for visibility and accessibility */}
           <button
             onClick={goToPrevious}
@@ -102,42 +106,42 @@ export default function CaseStudySection() {
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 xs:gap-3 sm:gap-4 md:gap-6 lg:gap-8 h-full items-start lg:items-center">
                     
                     {/* Content Section */}
-                    <div className="space-y-1.5 xs:space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6 order-2 lg:order-1">
-                      <div className="space-y-0.5 xs:space-y-1 sm:space-y-2 md:space-y-3">
-                        <h1 className="text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 leading-tight font-['Epilogue']">
+                    <div className="space-y-1 xs:space-y-1.5 sm:space-y-2 md:space-y-3 lg:space-y-4 order-2 lg:order-1">
+                      <div className="space-y-0.5 xs:space-y-1 sm:space-y-1.5 md:space-y-2">
+                        <h1 className="text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-gray-900 leading-tight font-['Epilogue']">
                           {cards[currentCard].h1}
                         </h1>
-                        <h2 className="text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl font-semibold text-emerald-600">
+                        <h2 className="text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl font-semibold text-emerald-600">
                           {cards[currentCard].h2}
                         </h2>
                       </div>
                       
-                      <p className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-600 leading-snug">
+                      <p className="text-xs xs:text-xs sm:text-sm md:text-base lg:text-lg text-gray-600 leading-tight">
                         {cards[currentCard].description}
                       </p>
                       
                       {/* How Section */}
                       {cards[currentCard].howTitle && (
-                        <div className="space-y-0.5 xs:space-y-1 md:space-y-2">
+                        <div className="space-y-0.5 xs:space-y-1 md:space-y-1.5">
                           <h3 className="text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl font-semibold text-gray-900">
                             {cards[currentCard].howTitle}
                           </h3>
-                          <p className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-600 leading-snug">
+                          <p className="text-xs xs:text-xs sm:text-sm md:text-base lg:text-lg text-gray-600 leading-tight">
                             {cards[currentCard].howDescription}
                           </p>
                         </div>
                       )}
                       
                       {/* Numbers/Metrics */}
-                      <div className="space-y-1 md:space-y-2">
+                      <div className="space-y-0.5 md:space-y-1">
                         <h3 className="text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl font-semibold text-gray-900">
                           {cards[currentCard].howTitle ? "Numbers" : "Results"}
                         </h3>
                         <div className="space-y-0.5 md:space-y-1">
                           {cards[currentCard].metrics.map((metric, index) => (
                             <div key={index} className="flex items-center space-x-1 xs:space-x-1.5">
-                              <span className="text-emerald-500 text-xs md:text-sm">✅</span>
-                              <span className="text-gray-800 font-medium text-xs md:text-sm lg:text-base">{metric}</span>
+                              <span className="text-emerald-500 text-xs">✅</span>
+                              <span className="text-gray-800 font-medium text-xs xs:text-xs sm:text-sm md:text-sm lg:text-base">{metric}</span>
                             </div>
                           ))}
                         </div>
@@ -149,8 +153,8 @@ export default function CaseStudySection() {
                       <div className="w-full flex items-center justify-center order-1 lg:order-2 mb-1 xs:mb-2 lg:mb-0">
                         <div className={`w-full rounded-md xs:rounded-lg sm:rounded-xl md:rounded-2xl overflow-hidden shadow-lg bg-gray-100 border border-gray-200 ${
                           cards[currentCard].h1 === "Khodaniya Jewellers" 
-                            ? "h-[200px] xs:h-[240px] sm:h-[300px] md:h-[350px] lg:h-[400px]" 
-                            : "h-[120px] xs:h-[140px] sm:h-[180px] md:h-[220px] lg:h-[280px]"
+                            ? "h-[160px] xs:h-[180px] sm:h-[220px] md:h-[280px] lg:h-[320px]" 
+                            : "h-[100px] xs:h-[120px] sm:h-[150px] md:h-[180px] lg:h-[220px]"
                         }`}>
                           <img 
                             src={
