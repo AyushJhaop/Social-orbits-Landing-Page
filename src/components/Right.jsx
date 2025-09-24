@@ -44,7 +44,7 @@ export default function CaseStudySection() {
       description: "Became the leading jewellery brand in Wagad region.",
       howTitle: "How", 
       howDescription: "Authority-building content made us the go-to brand.",
-      metrics: ["25K Followers", "5M+ Views", "5x Footfalls"]
+      metrics: ["28,860 Interactions", "25,594 Likes", "2,965 Shares", "5x Footfalls"]
     }
   ]
 
@@ -68,7 +68,7 @@ export default function CaseStudySection() {
           </p>
         </div>
         
-        {/* Card Container with optimized margins for arrow buttons - Reduced size */}
+        {/* Card Container with consistent size for all case studies */}
         <div className="relative min-h-[420px] xs:min-h-[450px] sm:min-h-[500px] md:min-h-[580px] lg:min-h-[650px] px-2 sm:px-0 lg:mx-16 xl:mx-20">
           {/* Navigation Buttons - Optimally positioned for visibility and accessibility */}
           <button
@@ -147,31 +147,35 @@ export default function CaseStudySection() {
                     {/* Image Section - Show for specific case studies */}
                     {(cards[currentCard].h1 === "Dungarpur Jewellers" || cards[currentCard].h1 === "Ohalala Café & Restro" || cards[currentCard].h1 === "Khodaniya Jewellers") && (
                       <div className="w-full flex items-center justify-center order-1 lg:order-2 mb-1 xs:mb-2 lg:mb-0">
-                        <div className="w-full h-[120px] xs:h-[140px] sm:h-[180px] md:h-[220px] lg:h-[280px] rounded-md xs:rounded-lg sm:rounded-xl md:rounded-2xl overflow-hidden shadow-lg bg-gray-100 border border-gray-200">
+                        <div className={`w-full rounded-md xs:rounded-lg sm:rounded-xl md:rounded-2xl overflow-hidden shadow-lg bg-gray-100 border border-gray-200 ${
+                          cards[currentCard].h1 === "Khodaniya Jewellers" 
+                            ? "h-[200px] xs:h-[240px] sm:h-[300px] md:h-[350px] lg:h-[400px]" 
+                            : "h-[120px] xs:h-[140px] sm:h-[180px] md:h-[220px] lg:h-[280px]"
+                        }`}>
                           <img 
                             src={
                               cards[currentCard].h1 === "Dungarpur Jewellers" 
                                 ? "/WhatsApp Image 2025-09-21 at 13.09.25 (3).jpeg"
                                 : cards[currentCard].h1 === "Ohalala Café & Restro"
                                 ? "/WhatsApp Image 2025-09-21 at 13.09.25.jpeg"
-                                : "/WhatsApp Image 2025-09-21 at 17.44.36 (2).jpeg"
+                                : "/screenshot-analytics.png"
                             }
                             alt={
                               cards[currentCard].h1 === "Dungarpur Jewellers" 
                                 ? "Dungarpur Jewellers showcase"
                                 : cards[currentCard].h1 === "Ohalala Café & Restro"
                                 ? "Ohalala Café & Restro showcase"
-                                : "Khodaniya Jewellers analytics"
+                                : "Khodaniya Jewellers analytics dashboard"
                             }
                             className={`w-full h-full hover:scale-105 transition-transform duration-300 ${
                               cards[currentCard].h1 === "Khodaniya Jewellers" 
-                                ? "object-cover object-bottom" 
-                                : "object-cover object-center scale-110"
+                                ? "object-contain" 
+                                : "object-cover object-center"
                             }`}
                             loading="lazy"
                             style={cards[currentCard].h1 === "Khodaniya Jewellers" 
-                              ? { objectPosition: 'center bottom' } 
-                              : { objectPosition: 'center center', transform: 'scale(1.15)' }
+                              ? { objectPosition: 'center center', transform: 'scale(1.0)' } 
+                              : { objectPosition: 'left center', transform: 'scale(1.2)' }
                             }
                             onError={(e) => {
                               console.log('Image failed to load:', e.target.src);
