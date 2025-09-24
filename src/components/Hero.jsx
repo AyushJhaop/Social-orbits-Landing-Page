@@ -1,6 +1,9 @@
 import { Instagram, Linkedin } from "lucide-react"
+import { useNavigate } from 'react-router-dom';
+
 
 export default function HomePage() {
+  const navigate = useNavigate();
   return (
     <div className="min-h-screen bg-white flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8">
       <div className="w-full max-w-7xl mx-auto py-8 sm:py-12 lg:py-16">
@@ -56,7 +59,7 @@ export default function HomePage() {
           </div>
 
           {/* CTA Button */}
-          <button className="bg-emerald-600 text-white px-8 sm:px-10 lg:px-12 py-4 sm:py-5 lg:py-6 rounded-full text-base sm:text-lg lg:text-xl font-semibold hover:bg-emerald-700 transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-2xl font-['Epilogue'] transform">
+          <button className="bg-emerald-600 text-white px-8 sm:px-10 lg:px-12 py-4 sm:py-5 lg:py-6 rounded-full text-base sm:text-lg lg:text-xl font-semibold hover:bg-emerald-700 transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-2xl font-['Epilogue'] transform" onClick={() => navigate('/book-call')}>
             Book a call
           </button>
         </div>
