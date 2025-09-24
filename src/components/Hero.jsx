@@ -1,7 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
 const Hero = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="min-h-screen bg-white relative overflow-hidden">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 min-h-screen flex items-center">
@@ -99,7 +102,7 @@ const Hero = () => {
               transition={{ duration: 0.8, delay: 0.6 }}
             >
               <button 
-                onClick={() => window.open('https://calendly.com/tahakushalgarh4/30min', '_blank')}
+                onClick={() => navigate('/book-call')}
                 className="bg-black text-white px-10 py-4 rounded-full text-lg font-medium hover:bg-gray-800 transition-all duration-300 hover:scale-105 shadow-lg font-['Epilogue']"
               >
                 Book a call

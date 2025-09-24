@@ -192,9 +192,7 @@ export default function Creators() {
               <p className="text-muted-foreground text-sm md:text-base">{currentCreator.collaboration}</p>
             </div>
 
-            <button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white text-base md:text-lg py-2.5 md:py-3 px-4 rounded-md font-medium transition-colors">
-              View Profile
-            </button>
+           
           </Card>
 
           {/* Carousel Indicators */}
