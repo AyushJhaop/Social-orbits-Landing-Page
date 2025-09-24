@@ -26,7 +26,7 @@ const BookCall = () => {
       </motion.div>
 
       {/* Main Content */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         <div className="text-center">
           {/* Social Icons - matching Hero style */}
           <motion.div 
@@ -85,13 +85,13 @@ const BookCall = () => {
 
           {/* Contact Information Cards */}
           <motion.div
-            className="grid md:grid-cols-2 gap-8 mb-12"
+            className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-8 sm:mb-12"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             {/* Phone Card */}
-            <div className="bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition-all duration-300 hover:scale-105">
+            <div className="bg-gray-50 rounded-2xl p-6 sm:p-8 hover:shadow-lg transition-all duration-300 hover:scale-105">
               <div className="flex items-center justify-center mb-6">
                 <div className="w-16 h-16 bg-black rounded-full flex items-center justify-center">
                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">

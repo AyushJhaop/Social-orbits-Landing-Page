@@ -128,7 +128,7 @@ export default function Creators() {
 
       <div className="flex flex-col lg:flex-row gap-6 md:gap-8 items-start">
         {/* Mobile Phone Frame - Left Side with Instagram Post */}
-        <div className="relative bg-gray-900 rounded-[1.5rem] md:rounded-[2rem] p-1.5 md:p-2 shadow-2xl flex-shrink-0 w-[240px] sm:w-[260px] md:w-[280px] mx-auto lg:mx-0">
+        <div className="relative bg-gray-900 rounded-[1.2rem] sm:rounded-[1.5rem] md:rounded-[2rem] p-1.5 md:p-2 shadow-2xl flex-shrink-0 w-[200px] xs:w-[220px] sm:w-[240px] md:w-[260px] lg:w-[280px] mx-auto lg:mx-0">
           {/* Phone Screen */}
           <div className="bg-black rounded-[1.2rem] md:rounded-[1.5rem] overflow-hidden relative w-full">
             {/* Status Bar */}
@@ -142,7 +142,7 @@ export default function Creators() {
             </div>
 
             {/* Creator Image */}
-            <div className="bg-white h-[400px] sm:h-[440px] md:h-[480px] relative overflow-hidden" key={`post-${currentCreator.id}`}>
+            <div className="bg-white h-[320px] xs:h-[360px] sm:h-[400px] md:h-[440px] lg:h-[480px] relative overflow-hidden" key={`post-${currentCreator.id}`}>
               <img
                 src={currentCreator.postImage}
                 alt={`${currentCreator.name} content`}

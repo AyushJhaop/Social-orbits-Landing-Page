@@ -5,6 +5,8 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 
+
+
 export default function CaseStudySection() {
   const [currentCard, setCurrentCard] = useState(0)
 
@@ -16,66 +18,58 @@ export default function CaseStudySection() {
     setCurrentCard((prev) => (prev + 1) % cards.length)
   }
 
-  // Dungarpur Jewellers images
-  const dungarpurImages = [
-    "/WhatsApp Image 2025-09-21 at 13.09.25 (1).jpeg",
-    "/WhatsApp Image 2025-09-21 at 13.09.25 (2).jpeg", 
-    "/WhatsApp Image 2025-09-21 at 13.09.25 (3).jpeg"
-  ]
-
   const cards = [
     {
       id: 1,
       h1: "Dungarpur Jewellers",
       h2: "Achievements",
-      description: "Expanded from city-level recognition to a leading jewellery brand across the district.",
+      description: "Expanded from city-level to leading district jewellery brand.",
       howTitle: "How",
-      howDescription: "Executed a funnel-driven campaign blending targeted ads with organic growth strategies.",
-      metrics: ["+6,000 Followers", "3x Footfalls", "2x Inquiries"]
+      howDescription: "Funnel-driven campaign with targeted ads & organic growth.",
+      metrics: ["+6K Followers", "3x Footfalls", "2x Inquiries"]
     },
     {
       id: 2,
       h1: "Ohalala Café & Restro",
-      h2: "Achievements",
-      description: "Overcame tough competition and built strong visibility in the Goa market.",
+      h2: "Achievements", 
+      description: "Built strong visibility in competitive Goa market.",
       howTitle: "How",
-      howDescription: "Identified gaps and executed a detailed content plan with consistent creative strategy.",
-      metrics: ["74.8K Followers", "Millions of Views", "High Sales Growth"]
+      howDescription: "Strategic content plan with consistent creative approach.",
+      metrics: ["74.8K Followers", "Millions Views", "High Growth"]
     },
     {
       id: 3,
       h1: "Khodaniya Jewellers",
       h2: "Achievements",
-      description: "Positioned as the leading jewellery brand in Wagad with strong authority and recognition.",
-      howTitle: "How",
-      howDescription: "Planned, researched, and executed authority-building content that made \"Jewellery in Wagad = Khodaniya Jewellers.\"",
-      metrics: ["+7,000 Followers", "5M+ Views", "5x Footfalls"]
+      description: "Became the leading jewellery brand in Wagad region.",
+      howTitle: "How", 
+      howDescription: "Authority-building content made us the go-to brand.",
+      metrics: ["25K Followers", "5M+ Views", "5x Footfalls"]
     }
   ]
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      goToNext()
-    }, 5000) // Change card every 5 seconds
+  // Auto-rotation disabled - only arrow buttons control navigation
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     goToNext()
+  //   }, 5000) // Change card every 5 seconds
 
-    return () => clearInterval(interval)
-  }, [currentCard])
-
-  // No auto-rotation needed since all three images are displayed simultaneously
+  //   return () => clearInterval(interval)
+  // }, [currentCard])
 
   return (
-    <section className="bg-white py-12 md:py-16 px-4 sm:px-6">
+    <section className="bg-white py-6 xs:py-8 sm:py-10 md:py-12 lg:py-16 px-1 xs:px-2 sm:px-4 md:px-6">
       <div className="max-w-7xl mx-auto">
         {/* Case Study Heading */}
-        <div className="text-center mb-12 md:mb-16">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-3 md:mb-4 font-['Epilogue']">Case Studies</h1>
-          <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
+        <div className="text-center mb-6 xs:mb-8 sm:mb-10 md:mb-12 lg:mb-16 px-1 xs:px-2">
+          <h1 className="text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-2 xs:mb-3 md:mb-4 font-['Epilogue']">Case Studies</h1>
+          <p className="text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto px-2 xs:px-4 sm:px-0">
             Discover how we've transformed businesses and generated exceptional results for our clients
           </p>
         </div>
         
-        {/* Card Container with optimized margins for arrow buttons - Increased size for Dungarpur images */}
-        <div className="relative min-h-[800px] sm:min-h-[900px] md:min-h-[950px] lg:min-h-[1000px] lg:mx-16 xl:mx-20">
+        {/* Card Container with optimized margins for arrow buttons - Reduced size */}
+        <div className="relative min-h-[420px] xs:min-h-[450px] sm:min-h-[500px] md:min-h-[580px] lg:min-h-[650px] px-2 sm:px-0 lg:mx-16 xl:mx-20">
           {/* Navigation Buttons - Optimally positioned for visibility and accessibility */}
           <button
             onClick={goToPrevious}
@@ -102,163 +96,112 @@ export default function CaseStudySection() {
               transition={{ duration: 0.8, ease: "easeInOut" }}
               className="absolute inset-0"
             >
-              {/* Two Card Layout - Content Card and Image Card */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 h-full">
-                {/* Content Card */}
-                <div className="bg-white rounded-2xl md:rounded-3xl shadow-2xl p-6 sm:p-8 md:p-10 order-2 lg:order-1 border border-gray-100">
-                  <div className="space-y-4 md:space-y-6 h-full flex flex-col justify-center">
-                    <div className="space-y-3 md:space-y-4">
-                      <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight font-['Epilogue']">
-                        {cards[currentCard].h1}
-                      </h1>
-                      <h2 className="text-xl sm:text-2xl md:text-2xl lg:text-3xl font-semibold text-emerald-600">
-                        {cards[currentCard].h2}
-                      </h2>
-                    </div>
+              {/* Single Card Layout - Content + Image Combined */}
+              <div className="flex justify-center h-full">
+                <div className="bg-white rounded-lg xs:rounded-xl sm:rounded-2xl md:rounded-3xl shadow-2xl p-2 xs:p-3 sm:p-4 md:p-6 lg:p-8 border border-gray-100 max-w-6xl w-full mx-1 xs:mx-2 sm:mx-4 md:mx-auto">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 xs:gap-3 sm:gap-4 md:gap-6 lg:gap-8 h-full items-start lg:items-center">
                     
-                    <p className="text-base md:text-lg text-gray-600 leading-relaxed">
-                      {cards[currentCard].description}
-                    </p>
-                    
-                    {/* How Section */}
-                    {cards[currentCard].howTitle && (
-                      <div className="space-y-2 md:space-y-3">
-                        <h3 className="text-lg md:text-xl font-semibold text-gray-900">
-                          {cards[currentCard].howTitle}
+                    {/* Content Section */}
+                    <div className="space-y-1.5 xs:space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6 order-2 lg:order-1">
+                      <div className="space-y-0.5 xs:space-y-1 sm:space-y-2 md:space-y-3">
+                        <h1 className="text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 leading-tight font-['Epilogue']">
+                          {cards[currentCard].h1}
+                        </h1>
+                        <h2 className="text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl font-semibold text-emerald-600">
+                          {cards[currentCard].h2}
+                        </h2>
+                      </div>
+                      
+                      <p className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-600 leading-snug">
+                        {cards[currentCard].description}
+                      </p>
+                      
+                      {/* How Section */}
+                      {cards[currentCard].howTitle && (
+                        <div className="space-y-0.5 xs:space-y-1 md:space-y-2">
+                          <h3 className="text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl font-semibold text-gray-900">
+                            {cards[currentCard].howTitle}
+                          </h3>
+                          <p className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-600 leading-snug">
+                            {cards[currentCard].howDescription}
+                          </p>
+                        </div>
+                      )}
+                      
+                      {/* Numbers/Metrics */}
+                      <div className="space-y-1 md:space-y-2">
+                        <h3 className="text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl font-semibold text-gray-900">
+                          {cards[currentCard].howTitle ? "Numbers" : "Results"}
                         </h3>
-                        <p className="text-base md:text-lg text-gray-600 leading-relaxed">
-                          {cards[currentCard].howDescription}
-                        </p>
+                        <div className="space-y-0.5 md:space-y-1">
+                          {cards[currentCard].metrics.map((metric, index) => (
+                            <div key={index} className="flex items-center space-x-1 xs:space-x-1.5">
+                              <span className="text-emerald-500 text-xs md:text-sm">✅</span>
+                              <span className="text-gray-800 font-medium text-xs md:text-sm lg:text-base">{metric}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Image Section - Show for specific case studies */}
+                    {(cards[currentCard].h1 === "Dungarpur Jewellers" || cards[currentCard].h1 === "Ohalala Café & Restro" || cards[currentCard].h1 === "Khodaniya Jewellers") && (
+                      <div className="w-full flex items-center justify-center order-1 lg:order-2 mb-1 xs:mb-2 lg:mb-0">
+                        <div className="w-full h-[120px] xs:h-[140px] sm:h-[180px] md:h-[220px] lg:h-[280px] rounded-md xs:rounded-lg sm:rounded-xl md:rounded-2xl overflow-hidden shadow-lg bg-gray-100 border border-gray-200">
+                          <img 
+                            src={
+                              cards[currentCard].h1 === "Dungarpur Jewellers" 
+                                ? "/src/assets/WhatsApp Image 2025-09-21 at 13.09.25 (3).jpeg"
+                                : cards[currentCard].h1 === "Ohalala Café & Restro"
+                                ? "/src/assets/WhatsApp Image 2025-09-21 at 13.09.25.jpeg"
+                                : "/src/assets/WhatsApp Image 2025-09-21 at 17.44.36 (2).jpeg"
+                            }
+                            alt={
+                              cards[currentCard].h1 === "Dungarpur Jewellers" 
+                                ? "Dungarpur Jewellers showcase"
+                                : cards[currentCard].h1 === "Ohalala Café & Restro"
+                                ? "Ohalala Café & Restro showcase"
+                                : "Khodaniya Jewellers analytics"
+                            }
+                            className={`w-full h-full hover:scale-105 transition-transform duration-300 ${
+                              cards[currentCard].h1 === "Khodaniya Jewellers" 
+                                ? "object-cover object-bottom" 
+                                : "object-cover object-center scale-110"
+                            }`}
+                            loading="lazy"
+                            style={cards[currentCard].h1 === "Khodaniya Jewellers" 
+                              ? { objectPosition: 'center bottom' } 
+                              : { objectPosition: 'center center', transform: 'scale(1.15)' }
+                            }
+                            onError={(e) => {
+                              console.log('Image failed to load:', e.target.src);
+                              e.target.style.display = 'block';
+                              e.target.style.backgroundColor = '#f3f4f6';
+                            }}
+                          />
+                        </div>
                       </div>
                     )}
                     
-                    {/* Numbers/Metrics */}
-                    <div className="space-y-3 md:space-y-4">
-                      <h3 className="text-lg md:text-xl font-semibold text-gray-900">
-                        {cards[currentCard].howTitle ? "Numbers" : "Results"}
-                      </h3>
-                      <div className="space-y-2 md:space-y-3">
-                        {cards[currentCard].metrics.map((metric, index) => (
-                          <div key={index} className="flex items-center space-x-3">
-                            <span className="text-emerald-500 text-base md:text-lg">✅</span>
-                            <span className="text-gray-800 font-medium text-sm md:text-base">{metric}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Image Card */}
-                <div className="bg-white rounded-2xl md:rounded-3xl shadow-2xl p-4 sm:p-6 order-1 lg:order-2 border border-gray-100">
-                  <div className="w-full h-full flex items-center justify-center">
-                    {cards[currentCard].h1 === "Dungarpur Jewellers" ? (
-                      /* Dungarpur Jewellers - Three Images Layout - ENLARGED */
-                      <div className="w-full h-[500px] sm:h-[600px] md:h-[700px] lg:h-[750px] xl:h-[800px] rounded-xl md:rounded-2xl overflow-hidden shadow-lg bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-200">
-                        {/* Responsive Grid Layout for Three Images */}
-                        <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3 gap-3 h-full p-4">
-                          
-                          {/* First Image */}
-                          <div className="relative rounded-xl overflow-hidden shadow-xl bg-white border-2 border-gray-200 group">
-                            <img 
-                              src={dungarpurImages[0]}
-                              alt="Dungarpur Jewellers showcase 1"
-                              className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-500"
-                              loading="lazy"
-                              style={{ objectPosition: 'center center' }}
-                              onError={(e) => {
-                                console.log('Image failed to load:', e.target.src);
-                                e.target.style.display = 'block';
-                                e.target.style.backgroundColor = '#f3f4f6';
-                              }}
-                            />
-                            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300"></div>
-                          </div>
-                          
-                          {/* Second Image */}
-                          <div className="relative rounded-xl overflow-hidden shadow-xl bg-white border-2 border-gray-200 group">
-                            <img 
-                              src={dungarpurImages[1]}
-                              alt="Dungarpur Jewellers showcase 2"
-                              className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-500"
-                              loading="lazy"
-                              style={{ objectPosition: 'center center' }}
-                              onError={(e) => {
-                                console.log('Image failed to load:', e.target.src);
-                                e.target.style.display = 'block';
-                                e.target.style.backgroundColor = '#f3f4f6';
-                              }}
-                            />
-                            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300"></div>
-                          </div>
-                          
-                          {/* Third Image */}
-                          <div className="relative rounded-xl overflow-hidden shadow-xl bg-white border-2 border-gray-200 group">
-                            <img 
-                              src={dungarpurImages[2]}
-                              alt="Dungarpur Jewellers showcase 3"
-                              className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-500"
-                              loading="lazy"
-                              style={{ objectPosition: 'center center' }}
-                              onError={(e) => {
-                                console.log('Image failed to load:', e.target.src);
-                                e.target.style.display = 'block';
-                                e.target.style.backgroundColor = '#f3f4f6';
-                              }}
-                            />
-                            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300"></div>
-                          </div>
-                          
-                        </div>
-                        
-                        {/* Image Labels */}
-                        <div className="absolute bottom-4 left-4 right-4 flex justify-between text-xs font-medium text-gray-600 bg-white/80 backdrop-blur-sm rounded-lg px-3 py-2">
-                          <span>Design Portfolio</span>
-                          <span>•</span>
-                          <span>Social Media Content</span>
-                          <span>•</span>
-                          <span>Brand Identity</span>
-                        </div>
-                      </div>
-                    ) : (
-                      /* Other Companies - Single Image */
-                      <div className="w-full h-[400px] sm:h-[450px] md:h-[500px] lg:h-[550px] rounded-xl md:rounded-2xl overflow-hidden shadow-lg bg-gray-100 border border-gray-200">
-                        <img 
-                          src={
-                            cards[currentCard].h1 === "Ohalala Café & Restro" ? "/ohalala-image.jpeg" :
-                            "/khodaniya-image.jpeg"
-                          }
-                          alt={`${cards[currentCard].h1} showcase`}
-                          className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-300"
-                          loading="lazy"
-                          style={{ objectPosition: 'center center' }}
-                          onError={(e) => {
-                            console.log('Image failed to load:', e.target.src);
-                            e.target.style.display = 'block';
-                            e.target.style.backgroundColor = '#f3f4f6';
-                          }}
-                        />
-                      </div>
-                    )}
                   </div>
                 </div>
               </div>
 
               {/* Mobile Navigation Buttons - Improved styling */}
-              <div className="flex lg:hidden justify-center space-x-4 mt-8">
+              <div className="flex lg:hidden justify-center space-x-3 mt-3 pt-2">
                 <button
                   onClick={goToPrevious}
-                  className="w-12 h-12 bg-emerald-600 rounded-full flex items-center justify-center text-white hover:bg-emerald-700 transition-all duration-300 hover:scale-110 shadow-lg border-2 border-emerald-100"
+                  className="w-8 h-8 xs:w-10 xs:h-10 bg-emerald-600 rounded-full flex items-center justify-center text-white hover:bg-emerald-700 transition-all duration-300 shadow-lg"
                   aria-label="Previous case study"
                 >
-                  <ChevronLeft size={20} />
+                  <ChevronLeft size={16} className="xs:w-4 xs:h-4" />
                 </button>
                 <button
                   onClick={goToNext}
-                  className="w-12 h-12 bg-emerald-600 rounded-full flex items-center justify-center text-white hover:bg-emerald-700 transition-all duration-300 hover:scale-110 shadow-lg border-2 border-emerald-100"
+                  className="w-8 h-8 xs:w-10 xs:h-10 bg-emerald-600 rounded-full flex items-center justify-center text-white hover:bg-emerald-700 transition-all duration-300 shadow-lg"
                   aria-label="Next case study"
                 >
-                  <ChevronRight size={20} />
+                  <ChevronRight size={16} className="xs:w-4 xs:h-4" />
                 </button>
               </div>
             </motion.div>
@@ -266,16 +209,17 @@ export default function CaseStudySection() {
         </div>
 
         {/* Card Indicators */}
-        <div className="flex justify-center space-x-2 md:space-x-3 mt-6 md:mt-8">
+        <div className="flex justify-center space-x-1.5 xs:space-x-2 md:space-x-3 mt-2 xs:mt-4 md:mt-6 pb-2 xs:pb-4">
           {cards.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentCard(index)}
-              className={`w-2.5 h-2.5 md:w-3 md:h-3 rounded-full transition-all duration-300 ${
+              className={`w-1.5 h-1.5 xs:w-2 xs:h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3 rounded-full transition-all duration-300 ${
                 index === currentCard 
                   ? 'bg-emerald-600 scale-125' 
                   : 'bg-gray-300 hover:bg-gray-400'
               }`}
+              aria-label={`Go to case study ${index + 1}`}
             />
           ))}
         </div>

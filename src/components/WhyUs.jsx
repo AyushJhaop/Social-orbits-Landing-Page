@@ -1,6 +1,10 @@
+import { useNavigate } from 'react-router-dom';
+
 const ViralComparison = () => {
+  const navigate = useNavigate();
+  
   const handleBookCall = () => {
-    window.open('https://calendly.com/tahakushalgarh4/30min', '_blank')
+    navigate('/book-call')
   }
 
   return (
