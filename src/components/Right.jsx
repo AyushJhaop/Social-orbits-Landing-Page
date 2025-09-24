@@ -16,6 +16,13 @@ export default function CaseStudySection() {
     setCurrentCard((prev) => (prev + 1) % cards.length)
   }
 
+  // Dungarpur Jewellers images
+  const dungarpurImages = [
+    "/WhatsApp Image 2025-09-21 at 13.09.25 (1).jpeg",
+    "/WhatsApp Image 2025-09-21 at 13.09.25 (2).jpeg", 
+    "/WhatsApp Image 2025-09-21 at 13.09.25 (3).jpeg"
+  ]
+
   const cards = [
     {
       id: 1,
@@ -54,6 +61,8 @@ export default function CaseStudySection() {
     return () => clearInterval(interval)
   }, [currentCard])
 
+  // No auto-rotation needed since all three images are displayed simultaneously
+
   return (
     <section className="bg-white py-12 md:py-16 px-4 sm:px-6">
       <div className="max-w-7xl mx-auto">
@@ -65,8 +74,8 @@ export default function CaseStudySection() {
           </p>
         </div>
         
-        {/* Card Container with optimized margins for arrow buttons */}
-        <div className="relative min-h-[600px] sm:min-h-[700px] md:min-h-[750px] lg:mx-16 xl:mx-20">
+        {/* Card Container with optimized margins for arrow buttons - Increased size for Dungarpur images */}
+        <div className="relative min-h-[800px] sm:min-h-[900px] md:min-h-[950px] lg:min-h-[1000px] lg:mx-16 xl:mx-20">
           {/* Navigation Buttons - Optimally positioned for visibility and accessibility */}
           <button
             onClick={goToPrevious}
@@ -93,11 +102,11 @@ export default function CaseStudySection() {
               transition={{ duration: 0.8, ease: "easeInOut" }}
               className="absolute inset-0"
             >
-              <div className="bg-white rounded-2xl md:rounded-3xl shadow-2xl p-4 sm:p-6 md:p-8 h-full mx-0 sm:mx-6 md:mx-12">
-                {/* All Case Studies - Responsive Layout */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 h-full items-center">
-                  {/* Content */}
-                  <div className="space-y-4 md:space-y-6 order-2 lg:order-1">
+              {/* Two Card Layout - Content Card and Image Card */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 h-full">
+                {/* Content Card */}
+                <div className="bg-white rounded-2xl md:rounded-3xl shadow-2xl p-6 sm:p-8 md:p-10 order-2 lg:order-1 border border-gray-100">
+                  <div className="space-y-4 md:space-y-6 h-full flex flex-col justify-center">
                     <div className="space-y-3 md:space-y-4">
                       <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight font-['Epilogue']">
                         {cards[currentCard].h1}
@@ -138,47 +147,119 @@ export default function CaseStudySection() {
                       </div>
                     </div>
                   </div>
+                </div>
 
-                  {/* Image Section - Visible on all screen sizes, responsive positioning */}
-                  <div className="w-full h-full flex items-center justify-center order-1 lg:order-2">
-                    <div className="w-full h-[300px] sm:h-[350px] md:h-[400px] lg:h-[450px] rounded-xl md:rounded-2xl overflow-hidden shadow-lg bg-gray-100 border border-gray-200">
-                      <img 
-                        src={
-                          cards[currentCard].h1 === "Dungarpur Jewellers" ? "/image3.jpeg" :
-                          cards[currentCard].h1 === "Ohalala Café & Restro" ? "/ohalala-image.jpeg" :
-                          "/khodaniya-image.jpeg"
-                        }
-                        alt={`${cards[currentCard].h1} showcase`}
-                        className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-300"
-                        loading="lazy"
-                        style={{ objectPosition: 'center center' }}
-                        onError={(e) => {
-                          console.log('Image failed to load:', e.target.src);
-                          e.target.style.display = 'block';
-                          e.target.style.backgroundColor = '#f3f4f6';
-                        }}
-                      />
-                    </div>
+                {/* Image Card */}
+                <div className="bg-white rounded-2xl md:rounded-3xl shadow-2xl p-4 sm:p-6 order-1 lg:order-2 border border-gray-100">
+                  <div className="w-full h-full flex items-center justify-center">
+                    {cards[currentCard].h1 === "Dungarpur Jewellers" ? (
+                      /* Dungarpur Jewellers - Three Images Layout - ENLARGED */
+                      <div className="w-full h-[500px] sm:h-[600px] md:h-[700px] lg:h-[750px] xl:h-[800px] rounded-xl md:rounded-2xl overflow-hidden shadow-lg bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-200">
+                        {/* Responsive Grid Layout for Three Images */}
+                        <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3 gap-3 h-full p-4">
+                          
+                          {/* First Image */}
+                          <div className="relative rounded-xl overflow-hidden shadow-xl bg-white border-2 border-gray-200 group">
+                            <img 
+                              src={dungarpurImages[0]}
+                              alt="Dungarpur Jewellers showcase 1"
+                              className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-500"
+                              loading="lazy"
+                              style={{ objectPosition: 'center center' }}
+                              onError={(e) => {
+                                console.log('Image failed to load:', e.target.src);
+                                e.target.style.display = 'block';
+                                e.target.style.backgroundColor = '#f3f4f6';
+                              }}
+                            />
+                            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300"></div>
+                          </div>
+                          
+                          {/* Second Image */}
+                          <div className="relative rounded-xl overflow-hidden shadow-xl bg-white border-2 border-gray-200 group">
+                            <img 
+                              src={dungarpurImages[1]}
+                              alt="Dungarpur Jewellers showcase 2"
+                              className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-500"
+                              loading="lazy"
+                              style={{ objectPosition: 'center center' }}
+                              onError={(e) => {
+                                console.log('Image failed to load:', e.target.src);
+                                e.target.style.display = 'block';
+                                e.target.style.backgroundColor = '#f3f4f6';
+                              }}
+                            />
+                            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300"></div>
+                          </div>
+                          
+                          {/* Third Image */}
+                          <div className="relative rounded-xl overflow-hidden shadow-xl bg-white border-2 border-gray-200 group">
+                            <img 
+                              src={dungarpurImages[2]}
+                              alt="Dungarpur Jewellers showcase 3"
+                              className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-500"
+                              loading="lazy"
+                              style={{ objectPosition: 'center center' }}
+                              onError={(e) => {
+                                console.log('Image failed to load:', e.target.src);
+                                e.target.style.display = 'block';
+                                e.target.style.backgroundColor = '#f3f4f6';
+                              }}
+                            />
+                            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300"></div>
+                          </div>
+                          
+                        </div>
+                        
+                        {/* Image Labels */}
+                        <div className="absolute bottom-4 left-4 right-4 flex justify-between text-xs font-medium text-gray-600 bg-white/80 backdrop-blur-sm rounded-lg px-3 py-2">
+                          <span>Design Portfolio</span>
+                          <span>•</span>
+                          <span>Social Media Content</span>
+                          <span>•</span>
+                          <span>Brand Identity</span>
+                        </div>
+                      </div>
+                    ) : (
+                      /* Other Companies - Single Image */
+                      <div className="w-full h-[400px] sm:h-[450px] md:h-[500px] lg:h-[550px] rounded-xl md:rounded-2xl overflow-hidden shadow-lg bg-gray-100 border border-gray-200">
+                        <img 
+                          src={
+                            cards[currentCard].h1 === "Ohalala Café & Restro" ? "/ohalala-image.jpeg" :
+                            "/khodaniya-image.jpeg"
+                          }
+                          alt={`${cards[currentCard].h1} showcase`}
+                          className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-300"
+                          loading="lazy"
+                          style={{ objectPosition: 'center center' }}
+                          onError={(e) => {
+                            console.log('Image failed to load:', e.target.src);
+                            e.target.style.display = 'block';
+                            e.target.style.backgroundColor = '#f3f4f6';
+                          }}
+                        />
+                      </div>
+                    )}
                   </div>
                 </div>
+              </div>
 
-                {/* Mobile Navigation Buttons - Improved styling */}
-                <div className="flex lg:hidden justify-center space-x-4 mt-8">
-                  <button
-                    onClick={goToPrevious}
-                    className="w-12 h-12 bg-emerald-600 rounded-full flex items-center justify-center text-white hover:bg-emerald-700 transition-all duration-300 hover:scale-110 shadow-lg border-2 border-emerald-100"
-                    aria-label="Previous case study"
-                  >
-                    <ChevronLeft size={20} />
-                  </button>
-                  <button
-                    onClick={goToNext}
-                    className="w-12 h-12 bg-emerald-600 rounded-full flex items-center justify-center text-white hover:bg-emerald-700 transition-all duration-300 hover:scale-110 shadow-lg border-2 border-emerald-100"
-                    aria-label="Next case study"
-                  >
-                    <ChevronRight size={20} />
-                  </button>
-                </div>
+              {/* Mobile Navigation Buttons - Improved styling */}
+              <div className="flex lg:hidden justify-center space-x-4 mt-8">
+                <button
+                  onClick={goToPrevious}
+                  className="w-12 h-12 bg-emerald-600 rounded-full flex items-center justify-center text-white hover:bg-emerald-700 transition-all duration-300 hover:scale-110 shadow-lg border-2 border-emerald-100"
+                  aria-label="Previous case study"
+                >
+                  <ChevronLeft size={20} />
+                </button>
+                <button
+                  onClick={goToNext}
+                  className="w-12 h-12 bg-emerald-600 rounded-full flex items-center justify-center text-white hover:bg-emerald-700 transition-all duration-300 hover:scale-110 shadow-lg border-2 border-emerald-100"
+                  aria-label="Next case study"
+                >
+                  <ChevronRight size={20} />
+                </button>
               </div>
             </motion.div>
           </AnimatePresence>
