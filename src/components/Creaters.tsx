@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { Card } from "@/components/ui/card"
-import { ChevronLeft, ChevronRight, Heart, MessageCircle, Share, Bookmark } from "lucide-react"
+import { ChevronLeft, ChevronRight } from "lucide-react"
  declare global {
   interface Window {
     instgrm?: {
@@ -151,42 +151,22 @@ export default function Creators() {
               </div>
             </div>
 
-            {/* Real Instagram Post Embed */}
+            {/* Real Instagram Post/Reel Embed */}
             <div className="bg-white h-[480px] relative overflow-hidden" key={`post-${currentCreator.id}`}>
-              <blockquote 
-                className="instagram-media" 
-                data-instgrm-permalink={currentCreator.postEmbedUrl}
-                data-instgrm-version="14" 
-                style={{ 
-                  background: '#FFF', 
-                  border: 0, 
-                  borderRadius: '3px', 
-                  boxShadow: '0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15)', 
-                  margin: '1px', 
-                  maxWidth: '658px', 
-                  minWidth: '326px', 
-                  padding: 0, 
-                  width: '99.375%'
+              <iframe
+                src={`${currentCreator.postEmbedUrl.replace('/?utm_source=ig_embed&utm_campaign=loading', '')}/embed`}
+                className="w-full h-full border-0"
+                scrolling="no"
+                allowTransparency={true}
+                allow="encrypted-media"
+                title={`Instagram post by ${currentCreator.handle}`}
+                style={{
+                  background: 'transparent',
+                  maxWidth: '100%',
+                  width: '100%',
+                  height: '100%'
                 }}
-              >
-                <div style={{ padding: '16px' }}>
-                  <a 
-                    href={currentCreator.postEmbedUrl}
-                    style={{ 
-                      background: '#FFFFFF', 
-                      lineHeight: 0, 
-                      padding: '0 0', 
-                      textAlign: 'center', 
-                      textDecoration: 'none', 
-                      width: '100%' 
-                    }} 
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    View this post on Instagram
-                  </a>
-                </div>
-              </blockquote>
+              />
             </div>
           </div>
 

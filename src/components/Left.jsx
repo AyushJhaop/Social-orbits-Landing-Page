@@ -11,7 +11,7 @@ function Left() {
             <div className="w-[240px] h-[480px] bg-gray-900 rounded-[35px] p-2 shadow-2xl">
               <div className="w-full h-full bg-black rounded-[25px] overflow-hidden">
                 <iframe
-                  src="https://www.instagram.com/reel/C8J3-ZOtKWi/embed"
+                  src="https://www.instagram.com/reel/DEugfaQoFv2/embed"
                   className="w-full h-full border-0 rounded-[20px]"
                   scrolling="no"
                   allowTransparency="true"
@@ -30,7 +30,7 @@ function Left() {
             <div className="w-[240px] h-[480px] bg-gray-900 rounded-[35px] p-2 shadow-2xl">
               <div className="w-full h-full bg-black rounded-[25px] overflow-hidden">
                 <iframe
-                  src="https://www.instagram.com/reel/DHp-DNhxq3G/embed"
+                  src="https://www.instagram.com/reel/DOVMfl8kXXi/embed"
                   className="w-full h-full border-0 rounded-[20px]"
                   scrolling="no"
                   allowTransparency="true"
