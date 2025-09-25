@@ -16,12 +16,15 @@ import kho from '../assets/kho.png'
 
 export default function CaseStudySection() {
   const [currentCard, setCurrentCard] = useState(0)
+  const [direction, setDirection] = useState(0) // -1 for left, 1 for right
 
   const goToPrevious = () => {
+    setDirection(-1)
     setCurrentCard((prev) => (prev === 0 ? cards.length - 1 : prev - 1))
   }
 
   const goToNext = () => {
+    setDirection(1)
     setCurrentCard((prev) => (prev + 1) % cards.length)
   }
 
@@ -94,13 +97,18 @@ export default function CaseStudySection() {
             <ChevronRight size={20} className="xl:w-6 xl:h-6" />
           </button>
 
-          <AnimatePresence mode="wait">
+          <AnimatePresence mode="wait" custom={direction}>
             <motion.div
               key={currentCard}
-              initial={{ opacity: 0, x: 100 }}
+              custom={direction}
+              initial={{ opacity: 0, x: direction === 1 ? 300 : -300 }}
               animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -100 }}
-              transition={{ duration: 0.8, ease: "easeInOut" }}
+              exit={{ opacity: 0, x: direction === 1 ? -300 : 300 }}
+              transition={{ 
+                duration: 0.5, 
+                ease: "easeInOut",
+                x: { type: "spring", stiffness: 300, damping: 30 }
+              }}
               className="w-full"
             >
               {/* Main Card with Left Content + Right Images Layout */}
@@ -275,7 +283,10 @@ export default function CaseStudySection() {
           {cards.map((_, index) => (
             <button
               key={index}
-              onClick={() => setCurrentCard(index)}
+              onClick={() => {
+                setDirection(index > currentCard ? 1 : -1)
+                setCurrentCard(index)
+              }}
               className={`w-2 h-2 xs:w-2.5 xs:h-2.5 sm:w-3 sm:h-3 md:w-4 md:h-4 rounded-full transition-all duration-300 ${
                 index === currentCard 
                   ? 'bg-emerald-600 scale-125' 
