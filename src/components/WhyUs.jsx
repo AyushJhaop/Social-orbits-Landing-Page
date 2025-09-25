@@ -24,7 +24,7 @@ const ViralComparison = () => {
               onClick={handleBookCall}
               className="bg-black text-white px-8 md:px-10 py-3 md:py-4 rounded-full text-base md:text-lg font-medium hover:bg-gray-800 transition-all duration-300 hover:scale-105 shadow-lg font-['Epilogue']"
             >
-              Book a strategy call
+              Book a call
             </button>
           </div>
         </div>

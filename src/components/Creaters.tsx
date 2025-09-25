@@ -188,8 +188,26 @@ export default function Creators() {
             </div>
 
             <div className="mb-4 md:mb-6">
-              <h4 className="font-semibold text-card-foreground mb-2 md:mb-3 text-base md:text-lg">Collaboration</h4>
-              <p className="text-muted-foreground text-sm md:text-base">{currentCreator.collaboration}</p>
+              <h4 className="font-semibold text-card-foreground mb-2 md:mb-3 text-base md:text-lg">Achievement</h4>
+              {currentCreator.name === "Andy Elliott" ? (
+                <p className="text-emerald-600 font-medium text-sm md:text-base">
+                  Business Leadership Campaign Success
+                </p>
+              ) : currentCreator.name === "Tim McKenna" ? (
+                <p className="text-emerald-600 font-medium text-sm md:text-base">
+                  Ranked website on the top in just 3 months
+                </p>
+              ) : currentCreator.name === "Mahi Sharma" ? (
+                <p className="text-emerald-600 font-medium text-sm md:text-base">
+                  Helped creative content that goes viral
+                </p>
+              ) : currentCreator.name === "Drew Whop" ? (
+                <p className="text-emerald-600 font-medium text-sm md:text-base">
+                  Helped getting high ticket clients consistently for drew
+                </p>
+              ) : (
+                <p className="text-muted-foreground text-sm md:text-base">{currentCreator.collaboration}</p>
+              )}
             </div>
 
            

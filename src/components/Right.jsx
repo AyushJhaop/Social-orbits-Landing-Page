@@ -12,7 +12,7 @@ import olala1 from '../assets/olala1.jpeg'
 import olala2 from '../assets/olala2.jpeg'
 import olala3 from '../assets/olala3.jpeg'
 import jwel1 from '../assets/jwel1.jpeg'
-import jwel2 from '../assets/jwel2.jpeg'
+import kho from '../assets/kho.png'
 
 export default function CaseStudySection() {
   const [currentCard, setCurrentCard] = useState(0)
@@ -42,7 +42,7 @@ export default function CaseStudySection() {
       description: "Built strong visibility in competitive Goa market.",
       howTitle: "How",
       howDescription: "Strategic content plan with consistent creative approach.",
-      metrics: ["74.8K Followers", "Millions Views", "High Growth"]
+      metrics: ["75k Followers", "10 M+ Views ", "4xROI generated"]
     },
     {
       id: 3,
@@ -51,7 +51,7 @@ export default function CaseStudySection() {
       description: "Became the leading jewellery brand in Wagad region.",
       howTitle: "How", 
       howDescription: "Authority-building content made us the go-to brand.",
-      metrics: ["28,860 Interactions", "25,594 Likes", "2,965 Shares", "5x Footfalls"]
+      metrics: ["28,860 Interactions", "+7,000 Followers", "5M+ views", "5x Footfalls"]
     }
   ]
 
@@ -224,7 +224,7 @@ export default function CaseStudySection() {
                     {cards[currentCard].h1 === "Khodaniya Jewellers" && (
                       <>
                         {/* Portrait Image Container 1 - Taller for portrait photos */}
-                        <div className="flex-1 border-4 border-black rounded-lg overflow-hidden bg-gray-100 min-h-[180px] md:min-h-[220px] lg:min-h-[240px]">
+                        <div className="flex-1 border-4 border-black rounded-lg overflow-hidden bg-gray-100 min-h-[160px] md:min-h-[180px] lg:min-h-[200px]">
                           <img 
                             src={jwel1}
                             alt="Khodaniya Jewellers showcase 1"
@@ -233,12 +233,12 @@ export default function CaseStudySection() {
                           />
                         </div>
 
-                        {/* Portrait Image Container 2 - Taller for portrait photos */}
-                        <div className="flex-1 border-4 border-black rounded-lg overflow-hidden bg-gray-100 min-h-[180px] md:min-h-[220px] lg:min-h-[240px]">
+                        {/* Analytics Screenshot Container - Larger for better visibility */}
+                        <div className="flex-1 border-4 border-black rounded-lg overflow-hidden bg-white min-h-[220px] md:min-h-[280px] lg:min-h-[320px]">
                           <img 
-                            src={jwel2}
-                            alt="Khodaniya Jewellers showcase 2"
-                            className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                            src={kho}
+                            alt="Khodaniya Jewellers analytics"
+                            className="w-full h-full object-contain hover:scale-105 transition-transform duration-300 p-2"
                             loading="lazy"
                           />
                         </div>
