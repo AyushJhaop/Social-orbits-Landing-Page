@@ -79,6 +79,7 @@ const BookCall = () => {
 
           {/* Main Heading */}
           <motion.div
+            id="ready-to-start"
             className="text-center mb-12"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -86,7 +87,7 @@ const BookCall = () => {
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black leading-tight font-['Epilogue'] mb-6">
               Call Booking with <br />
-              <em className="italic font-light">Social Orbits Team</em>
+              <em className="italic font-light">Social Buddies Team</em>
             </h1>
             <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
               Ready to scale your business? Let's discuss how we can help you achieve exponential growth through strategic social media marketing.

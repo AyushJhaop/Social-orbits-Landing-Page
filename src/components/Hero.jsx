@@ -59,7 +59,13 @@ export default function HomePage() {
           </div>
 
           {/* CTA Button */}
-          <button className="bg-emerald-600 text-white px-8 sm:px-10 lg:px-12 py-4 sm:py-5 lg:py-6 rounded-full text-base sm:text-lg lg:text-xl font-semibold hover:bg-emerald-700 transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-2xl font-['Epilogue'] transform" onClick={() => navigate('/book-call')}>
+          <button className="bg-emerald-600 text-white px-8 sm:px-10 lg:px-12 py-4 sm:py-5 lg:py-6 rounded-full text-base sm:text-lg lg:text-xl font-semibold hover:bg-emerald-700 transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-2xl font-['Epilogue'] transform" onClick={() => {
+            navigate('/book-call')
+            // Scroll to top after navigation
+            setTimeout(() => {
+              window.scrollTo(0, 0)
+            }, 50)
+          }}>
             Book a call
           </button>
         </div>
