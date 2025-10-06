@@ -67,7 +67,7 @@ export default function HomePage() {
               muted
               loop
             >
-              <source src="/SocialBuddiez-VSL_1080p.mp4" type="video/mp4" />
+              <source src="/videoplayback.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>

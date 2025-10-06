@@ -60,7 +60,8 @@ const creators: Creator[] = [
 
 export default function Creators() {
   const [currentIndex, setCurrentIndex] = useState(0)
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true)
+  // Turn off autoplay by default per request
+  const [isAutoPlaying, setIsAutoPlaying] = useState(false)
 
   useEffect(() => {
     if (!isAutoPlaying) return
@@ -126,7 +127,7 @@ export default function Creators() {
         </h1>
       </div>
 
-      <div className="flex flex-col lg:flex-row gap-6 md:gap-8 items-start">
+  <div className="flex flex-col lg:flex-row gap-6 md:gap-8 items-center lg:items-start">
         {/* Mobile Phone Frame - Left Side with Instagram Post */}
         <div className="relative bg-gray-900 rounded-[1.2rem] sm:rounded-[1.5rem] md:rounded-[2rem] p-1.5 md:p-2 shadow-2xl flex-shrink-0 w-[200px] xs:w-[220px] sm:w-[240px] md:w-[260px] lg:w-[280px] mx-auto lg:mx-0">
           {/* Phone Screen */}
@@ -168,8 +169,8 @@ export default function Creators() {
         </div>
 
         {/* Creator Info Card - Right Side with Profile Embed */}
-        <div className="flex-1 flex flex-col justify-center min-w-0">
-          <Card className="p-4 sm:p-6 md:p-8 bg-card">
+        <div className="flex-1 flex flex-col justify-center items-center lg:items-start min-w-0">
+          <Card className="w-full max-w-full p-4 sm:p-6 md:p-8 bg-card">
             <div className="mb-4 md:mb-6">
               <h3 className="font-playfair font-bold text-xl md:text-2xl text-card-foreground mb-2">{currentCreator.name}</h3>
               <p className="text-muted-foreground text-base md:text-lg mb-3 md:mb-4">{currentCreator.handle}</p>
