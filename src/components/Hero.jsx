@@ -58,6 +58,20 @@ export default function HomePage() {
             </div>
           </div>
 
+          {/* Video */}
+          <div className="mb-8 sm:mb-10 lg:mb-12">
+            <video 
+              className="w-full max-w-lg mx-auto rounded-lg shadow-lg" 
+              controls 
+              autoPlay
+              muted
+              loop
+            >
+              <source src="/SocialBuddiez-VSL_1080p.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+
           {/* CTA Button */}
           <button className="bg-emerald-600 text-white px-8 sm:px-10 lg:px-12 py-4 sm:py-5 lg:py-6 rounded-full text-base sm:text-lg lg:text-xl font-semibold hover:bg-emerald-700 transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-2xl font-['Epilogue'] transform" onClick={() => {
             navigate('/book-call')
