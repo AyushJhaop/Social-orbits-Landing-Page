@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 
-// Import images
+// Import images and video
 import durgapur1 from '../assets/durgapur1.jpeg'
 import durgapur2 from '../assets/durgapur2.jpeg'
 import durgapur3 from '../assets/durgapur3.jpeg'
@@ -13,6 +13,7 @@ import olala2 from '../assets/olala2.jpeg'
 import olala3 from '../assets/olala3.jpeg'
 import jwel1 from '../assets/jwel1.jpeg'
 import kho from '../assets/kho.png'
+import khodaniyaVideo from '../assets/SaveGram.App_AQPYGTzroysovf_l8QMeFmxof21Rpeje_G88KHttCh40Q85HeqXgcNFqCNJ6uyX5Vn0YjZhHLbJ7sCxyYD3t1vGVjzwdcEyN9IWbGG4.mp4'
 
 export default function CaseStudySection() {
   const [currentCard, setCurrentCard] = useState(0)
@@ -164,7 +165,7 @@ export default function CaseStudySection() {
                     {cards[currentCard].h1 === "Dungarpur Jewellers" && (
                       <>
                         {/* Image Container 1 */}
-                        <div className="flex-1 border-4 border-black rounded-lg overflow-hidden bg-gray-100 min-h-[120px] md:min-h-[140px] lg:min-h-[160px]">
+                        <div className="flex-1 border-8 border-white rounded-xl overflow-hidden bg-gray-100 min-h-[160px] md:min-h-[180px] lg:min-h-[200px] shadow-lg">
                           <img 
                             src={durgapur1}
                             alt="Dungarpur Jewellers showcase 1"
@@ -174,7 +175,7 @@ export default function CaseStudySection() {
                         </div>
 
                         {/* Image Container 2 */}
-                        <div className="flex-1 border-4 border-black rounded-lg overflow-hidden bg-gray-100 min-h-[120px] md:min-h-[140px] lg:min-h-[160px]">
+                        <div className="flex-1 border-8 border-white rounded-xl overflow-hidden bg-gray-100 min-h-[160px] md:min-h-[180px] lg:min-h-[200px] shadow-lg">
                           <img 
                             src={durgapur2}
                             alt="Dungarpur Jewellers showcase 2"
@@ -184,7 +185,7 @@ export default function CaseStudySection() {
                         </div>
 
                         {/* Image Container 3 */}
-                        <div className="flex-1 border-4 border-black rounded-lg overflow-hidden bg-gray-100 min-h-[120px] md:min-h-[140px] lg:min-h-[160px]">
+                        <div className="flex-1 border-8 border-white rounded-xl overflow-hidden bg-gray-100 min-h-[160px] md:min-h-[180px] lg:min-h-[200px] shadow-lg">
                           <img 
                             src={durgapur3}
                             alt="Dungarpur Jewellers showcase 3"
@@ -198,7 +199,7 @@ export default function CaseStudySection() {
                     {cards[currentCard].h1 === "Ohalala Café & Restro" && (
                       <>
                         {/* Image Container 1 */}
-                        <div className="flex-1 border-4 border-black rounded-lg overflow-hidden bg-gray-100 min-h-[120px] md:min-h-[140px] lg:min-h-[160px]">
+                        <div className="flex-1 border-8 border-white rounded-xl overflow-hidden bg-gray-100 min-h-[160px] md:min-h-[180px] lg:min-h-[200px] shadow-lg">
                           <img 
                             src={olala1}
                             alt="Ohalala Café & Restro showcase 1"
@@ -208,7 +209,7 @@ export default function CaseStudySection() {
                         </div>
 
                         {/* Image Container 2 */}
-                        <div className="flex-1 border-4 border-black rounded-lg overflow-hidden bg-gray-100 min-h-[120px] md:min-h-[140px] lg:min-h-[160px]">
+                        <div className="flex-1 border-8 border-white rounded-xl overflow-hidden bg-gray-100 min-h-[160px] md:min-h-[180px] lg:min-h-[200px] shadow-lg">
                           <img 
                             src={olala2}
                             alt="Ohalala Café & Restro showcase 2"
@@ -218,7 +219,7 @@ export default function CaseStudySection() {
                         </div>
 
                         {/* Image Container 3 */}
-                        <div className="flex-1 border-4 border-black rounded-lg overflow-hidden bg-gray-100 min-h-[120px] md:min-h-[140px] lg:min-h-[160px]">
+                        <div className="flex-1 border-8 border-white rounded-xl overflow-hidden bg-gray-100 min-h-[160px] md:min-h-[180px] lg:min-h-[200px] shadow-lg">
                           <img 
                             src={olala3}
                             alt="Ohalala Café & Restro showcase 3"
@@ -231,24 +232,35 @@ export default function CaseStudySection() {
 
                     {cards[currentCard].h1 === "Khodaniya Jewellers" && (
                       <>
-                        {/* Portrait Image Container 1 - Taller for portrait photos */}
-                        <div className="flex-1 border-4 border-black rounded-lg overflow-hidden bg-gray-100 min-h-[160px] md:min-h-[180px] lg:min-h-[200px]">
-                          <img 
-                            src={jwel1}
-                            alt="Khodaniya Jewellers showcase 1"
-                            className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                            loading="lazy"
-                          />
-                        </div>
+                        {/* Mobile Phone Frame with Video for Khodaniya Jewellers */}
+                        <div className="flex-1 flex justify-center items-center">
+                          <div className="relative bg-gray-800 rounded-[1.2rem] sm:rounded-[1.5rem] md:rounded-[2rem] p-1.5 md:p-2 shadow-xl border border-gray-700 w-[200px] xs:w-[220px] sm:w-[240px] md:w-[260px] lg:w-[280px]">
+                            {/* Phone Screen */}
+                            <div className="bg-gray-900 rounded-[1.2rem] md:rounded-[1.5rem] overflow-hidden relative w-full border border-gray-600">
+                              {/* Status Bar */}
+                              <div className="bg-gray-900 text-white text-xs px-3 md:px-4 py-1.5 md:py-2 flex justify-between items-center border-b border-gray-700">
+                                <span>9:41</span>
+                                <div className="flex items-center gap-1">
+                                  <div className="w-3 md:w-4 h-1.5 md:h-2 border border-white/60 rounded-sm">
+                                    <div className="w-2 md:w-3 h-0.5 md:h-1 bg-white/60 rounded-sm m-0.5"></div>
+                                  </div>
+                                </div>
+                              </div>
 
-                        {/* Analytics Screenshot Container - Larger for better visibility */}
-                        <div className="flex-1 border-4 border-black rounded-lg overflow-hidden bg-white min-h-[220px] md:min-h-[280px] lg:min-h-[320px]">
-                          <img 
-                            src={kho}
-                            alt="Khodaniya Jewellers analytics"
-                            className="w-full h-full object-contain hover:scale-105 transition-transform duration-300 p-2"
-                            loading="lazy"
-                          />
+                              {/* Video Content */}
+                              <div className="bg-black h-[320px] xs:h-[360px] sm:h-[400px] md:h-[440px] lg:h-[480px] relative overflow-hidden">
+                                <video 
+                                  src={khodaniyaVideo}
+                                  controls
+                                  muted
+                                  className="w-full h-full object-cover"
+                                  poster=""
+                                >
+                                  Your browser does not support the video tag.
+                                </video>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </>
                     )}
