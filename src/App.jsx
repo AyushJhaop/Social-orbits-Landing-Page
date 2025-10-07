@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Hero from './components/Hero';
 import CaseStudySection from './components/Right';
-import Left from './components/Left';
+
 import TestimonialCarousel from './components/Testimonials';
 import ViralComparison from './components/WhyUs'; 
 import Creators from './components/Creaters';
@@ -13,9 +13,10 @@ import BookCall from './components/BookCall';
 const HomePage = () => (
   <div>
     <Hero />
+     <Creators />
     <CaseStudySection />
-    <Left />
-    <Creators />
+ 
+   
     <TestimonialCarousel />
     <ViralComparison />
   </div>
