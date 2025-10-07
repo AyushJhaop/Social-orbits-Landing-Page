@@ -10,7 +10,7 @@ const testimonials = [
     author: "Owner",
     company: "Dungarpur Jewellers",
     role: "Jewellery Business",
-    results: "45K+ Followers | 350% Sales Growth"
+    results: "25K+ Followers | 350% Sales Growth"
   },
   {
     quote: "From a small local café to the most Instagram-famous restaurant in the city. Our weekend reservations are now booked ",
